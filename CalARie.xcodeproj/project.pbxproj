@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C46C9A81F75C6EF00969EAF /* GoogleAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */; };
+		2C46C9AA1F75C77200969EAF /* NutritionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */; };
 		73EDA611C28576BAFE27FEB5 /* Pods_CalARie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */; };
 		D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */; };
 		D92A8DA41F75BEEE00BA30CE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DA31F75BEEE00BA30CE /* art.scnassets */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPIManager.swift; sourceTree = "<group>"; };
+		2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAPIManager.swift; sourceTree = "<group>"; };
 		9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalARie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8D9E1F75BEEE00BA30CE /* CalARie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalARie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,8 +77,10 @@
 			isa = PBXGroup;
 			children = (
 				D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */,
+				2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */,
 				D92A8DA31F75BEEE00BA30CE /* art.scnassets */,
 				D92A8DA51F75BEEE00BA30CE /* ViewController.swift */,
+				2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */,
 				D92A8DA71F75BEEE00BA30CE /* Main.storyboard */,
 				D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */,
 				D92A8DAC1F75BEEE00BA30CE /* LaunchScreen.storyboard */,
@@ -170,10 +176,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CalARie/Pods-CalARie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92A8DA61F75BEEE00BA30CE /* ViewController.swift in Sources */,
+				2C46C9AA1F75C77200969EAF /* NutritionAPIManager.swift in Sources */,
+				2C46C9A81F75C6EF00969EAF /* GoogleAPIManager.swift in Sources */,
 				D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -361,10 +371,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZDXRK6UNH5;
+				DEVELOPMENT_TEAM = WD6FRG4V7Z;
 				INFOPLIST_FILE = CalARie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = brendonho.com.CalARie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichauster.calarie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -377,10 +387,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZDXRK6UNH5;
+				DEVELOPMENT_TEAM = WD6FRG4V7Z;
 				INFOPLIST_FILE = CalARie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = brendonho.com.CalARie;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ichauster.calarie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

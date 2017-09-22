@@ -7,5 +7,6 @@ target 'CalARie' do
 
   # Pods for CalARie
 pod 'SwiftyJSON'
+pod 'Alamofire'
 
 end
