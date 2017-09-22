@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class GoogleAPIManager {
     
-    var googleAPIKey = "AIzaSyBNed9n7O5T6hsEJ8lrvZVz-L00Q0F_h3w"
+    var googleAPIKey = "AIzaSyByivg-aBj5AYJHzWWWbWfcioFM4Vcmgbw"
     var googleURL: URL {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
