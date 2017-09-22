@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C46C9A81F75C6EF00969EAF /* GoogleAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */; };
 		2C46C9AA1F75C77200969EAF /* NutritionAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */; };
+		2C46C9AC1F75D1A700969EAF /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9AB1F75D1A700969EAF /* FoodManager.swift */; };
+		2C46C9AE1F75D1F500969EAF /* HistoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C46C9AD1F75D1F500969EAF /* HistoryData.swift */; };
 		73EDA611C28576BAFE27FEB5 /* Pods_CalARie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */; };
 		D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */; };
 		D92A8DA41F75BEEE00BA30CE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DA31F75BEEE00BA30CE /* art.scnassets */; };
@@ -21,6 +23,8 @@
 /* Begin PBXFileReference section */
 		2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAPIManager.swift; sourceTree = "<group>"; };
 		2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAPIManager.swift; sourceTree = "<group>"; };
+		2C46C9AB1F75D1A700969EAF /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
+		2C46C9AD1F75D1F500969EAF /* HistoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryData.swift; sourceTree = "<group>"; };
 		9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalARie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8D9E1F75BEEE00BA30CE /* CalARie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalARie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 				2C46C9A91F75C77200969EAF /* NutritionAPIManager.swift */,
 				D92A8DA31F75BEEE00BA30CE /* art.scnassets */,
 				D92A8DA51F75BEEE00BA30CE /* ViewController.swift */,
+				2C46C9AB1F75D1A700969EAF /* FoodManager.swift */,
+				2C46C9AD1F75D1F500969EAF /* HistoryData.swift */,
 				2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */,
 				D92A8DA71F75BEEE00BA30CE /* Main.storyboard */,
 				D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */,
@@ -230,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D92A8DA61F75BEEE00BA30CE /* ViewController.swift in Sources */,
+				2C46C9AC1F75D1A700969EAF /* FoodManager.swift in Sources */,
+				2C46C9AE1F75D1F500969EAF /* HistoryData.swift in Sources */,
 				2C46C9AA1F75C77200969EAF /* NutritionAPIManager.swift in Sources */,
 				2C46C9A81F75C6EF00969EAF /* GoogleAPIManager.swift in Sources */,
 				D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */,

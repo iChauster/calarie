@@ -128,7 +128,7 @@ class GoogleAPIManager {
                             }
                         }
                     }
-                    //let apiManager = HasuraAPIManager.shared()
+                    let apiManager = NutritionAPIManager.shared()
                     var calls = 0
                     // Call hasura api for each result from Google
                     responses = responses.map {
@@ -169,7 +169,7 @@ class GoogleAPIManager {
                         //
                         //                            }
                         //                        })
-                        //apiManager.getUsageForDrug("\(response)", completionHandler: handler)
+                        apiManager.getUsageForDrug("\(response)", completionHandler: handler)
                     }
                     
                 })
