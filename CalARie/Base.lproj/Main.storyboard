@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -12,16 +13,48 @@
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="ViewController" customModule="CalARie" customModuleProvider="target" sceneMemberID="viewController">
-                    <activityIndicatorView key="view" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="C1K-6Z-Q3J">
+                    <view key="view" contentMode="scaleToFill" id="ymH-4Z-XGW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </activityIndicatorView>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x9-SO-cxY">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                            </arscnView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hs0-qh-nPC">
+                                <rect key="frame" x="177" y="362" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Mj1-aX-B7F"/>
+                                    <constraint firstAttribute="width" constant="20" id="t1M-s3-jYr"/>
+                                </constraints>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnF-CG-VEb">
+                                <rect key="frame" x="181.5" y="323" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2x9-SO-cxY" firstAttribute="trailing" secondItem="KIS-sX-3h9" secondAttribute="trailing" id="AmJ-bX-fG6"/>
+                            <constraint firstItem="hs0-qh-nPC" firstAttribute="top" secondItem="MnF-CG-VEb" secondAttribute="bottom" constant="18" id="CEc-T1-1Ie"/>
+                            <constraint firstItem="2x9-SO-cxY" firstAttribute="top" secondItem="KIS-sX-3h9" secondAttribute="top" id="Gtc-at-h41"/>
+                            <constraint firstItem="2x9-SO-cxY" firstAttribute="bottom" secondItem="KIS-sX-3h9" secondAttribute="bottom" id="JsS-Pc-zqA"/>
+                            <constraint firstItem="hs0-qh-nPC" firstAttribute="centerX" secondItem="ymH-4Z-XGW" secondAttribute="centerX" id="avD-xG-QRc"/>
+                            <constraint firstItem="MnF-CG-VEb" firstAttribute="centerX" secondItem="ymH-4Z-XGW" secondAttribute="centerX" id="bYH-hV-UbE"/>
+                            <constraint firstItem="MnF-CG-VEb" firstAttribute="centerY" secondItem="ymH-4Z-XGW" secondAttribute="centerY" id="fJC-tO-dGo"/>
+                            <constraint firstItem="2x9-SO-cxY" firstAttribute="leading" secondItem="KIS-sX-3h9" secondAttribute="leading" id="kzW-xt-3iE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KIS-sX-3h9"/>
+                    </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="C1K-6Z-Q3J" id="RY2-GP-3Dc"/>
+                        <outlet property="activityIndicator" destination="hs0-qh-nPC" id="V7S-OE-VQo"/>
+                        <outlet property="sceneView" destination="2x9-SO-cxY" id="zqU-iQ-gBS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="36" y="106.59670164917542"/>
         </scene>
     </scenes>
 </document>

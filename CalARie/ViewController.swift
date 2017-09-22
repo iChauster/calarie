@@ -13,7 +13,7 @@ import SceneKit.ModelIO
 import Vision
 import Photos
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     var nutrition : [SCNNode] = []
@@ -39,7 +39,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene = scene
         sceneView.autoenablesDefaultLighting = true
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(gestureRecognize:)))
-        tapGesture.delegate = self as! UIGestureRecognizerDelegate
+        tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
         
         // Set the scene to the view
