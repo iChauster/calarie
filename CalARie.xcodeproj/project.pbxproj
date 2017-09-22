@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		73EDA611C28576BAFE27FEB5 /* Pods_CalARie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */; };
 		D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */; };
 		D92A8DA41F75BEEE00BA30CE /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DA31F75BEEE00BA30CE /* art.scnassets */; };
 		D92A8DA61F75BEEE00BA30CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92A8DA51F75BEEE00BA30CE /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalARie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8D9E1F75BEEE00BA30CE /* CalARie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalARie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D92A8DA11F75BEEE00BA30CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D92A8DA31F75BEEE00BA30CE /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -24,6 +26,8 @@
 		D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D92A8DAD1F75BEEE00BA30CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D92A8DAF1F75BEEE00BA30CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0000FED12B8AF10512621D1 /* Pods-CalARie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalARie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalARie/Pods-CalARie.debug.xcconfig"; sourceTree = "<group>"; };
+		EDA6C5C0F88F348D4B632C63 /* Pods-CalARie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalARie.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalARie/Pods-CalARie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73EDA611C28576BAFE27FEB5 /* Pods_CalARie.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B6504BD8B8BFA5FC004026A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E0000FED12B8AF10512621D1 /* Pods-CalARie.debug.xcconfig */,
+				EDA6C5C0F88F348D4B632C63 /* Pods-CalARie.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D92A8D951F75BEEE00BA30CE = {
 			isa = PBXGroup;
 			children = (
 				D92A8DA01F75BEEE00BA30CE /* CalARie */,
 				D92A8D9F1F75BEEE00BA30CE /* Products */,
+				3B6504BD8B8BFA5FC004026A /* Pods */,
+				ECFDB5082B418DEB5189E962 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +83,14 @@
 			path = CalARie;
 			sourceTree = "<group>";
 		};
+		ECFDB5082B418DEB5189E962 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9EE2BA1EAFF8850253B46486 /* Pods_CalARie.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D92A8DB21F75BEEE00BA30CE /* Build configuration list for PBXNativeTarget "CalARie" */;
 			buildPhases = (
+				8F418EB3EB2FF971E7970BD3 /* [CP] Check Pods Manifest.lock */,
 				D92A8D9A1F75BEEE00BA30CE /* Sources */,
 				D92A8D9B1F75BEEE00BA30CE /* Frameworks */,
 				D92A8D9C1F75BEEE00BA30CE /* Resources */,
+				201A5D305E64A1947F48AEF6 /* [CP] Embed Pods Frameworks */,
+				83EBB2854914A04ECF50188B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +161,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		201A5D305E64A1947F48AEF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CalARie/Pods-CalARie-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalARie/Pods-CalARie-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		83EBB2854914A04ECF50188B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CalARie/Pods-CalARie-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8F418EB3EB2FF971E7970BD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalARie-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D92A8D9A1F75BEEE00BA30CE /* Sources */ = {
@@ -276,6 +357,7 @@
 		};
 		D92A8DB31F75BEEE00BA30CE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0000FED12B8AF10512621D1 /* Pods-CalARie.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +373,7 @@
 		};
 		D92A8DB41F75BEEE00BA30CE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDA6C5C0F88F348D4B632C63 /* Pods-CalARie.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

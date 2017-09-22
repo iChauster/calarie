@@ -1,0 +1,6 @@
+framework module Pods_CalARie {
+  umbrella header "Pods-CalARie-umbrella.h"
+
+  export *
+  module * { export * }
+}
