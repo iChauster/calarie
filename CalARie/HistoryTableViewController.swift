@@ -8,6 +8,7 @@
 
 import UIKit
 import DeckTransition
+import ScrollableGraphView
 
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
