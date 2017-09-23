@@ -18,8 +18,17 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
         let item = FoodManager.shared().pillHistoryData[indexPath.row]
+        
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "h:m a"
+        let time = dateformatter.string(from: item.timeTaken)
+        dateformatter.dateFormat = "E MMM d yyyy"
+        let date = dateformatter.string(from: item.timeTaken)
+        
+        
+        
         cell.food.text = item.foodName;
-        cell.date.text = String(describing:item.timeTaken)
+        cell.date.text = "\(time)\n\(date)"
         cell.calories.text = String(item.calories)
         
         return cell

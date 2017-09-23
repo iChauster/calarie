@@ -13,6 +13,17 @@ enum HistoryVisible {
     case Hidden
 }
 
+extension Date
+{
+    func toString( dateFormat format  : String ) -> String
+    {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
+    
+}
+
 class FoodManager {
     static var sharedInstance: FoodManager = {
         let dataManager = FoodManager()
@@ -28,17 +39,28 @@ class FoodManager {
     init(){
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss zzz"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         
-        pillHistoryData.append(HistoryData(foodName: "Bagel", calories: 256, timeTaken: dateFormatter.date(from: "09-22-2017 11:23:30 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Orange", calories: 44, timeTaken: dateFormatter.date(from: "09-22-2017 11:56:23 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Apple", calories: 52, timeTaken: dateFormatter.date(from: "09-22-2017 11:57:43 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Bannana", calories: 47, timeTaken: dateFormatter.date(from: "09-23-2017 01:35:23 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Water", calories: 0, timeTaken: dateFormatter.date(from: "09-23-2017 01:45:45 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Bottled Water", calories: 1, timeTaken: dateFormatter.date(from: "09-23-2017 01:47:23 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Milk", calories: 103, timeTaken: dateFormatter.date(from: "09-23-2017 10:01:57 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Pizza", calories: 285, timeTaken: dateFormatter.date(from: "09-23-2017 10:05:32 EST")!))
-        pillHistoryData.append(HistoryData(foodName: "Bread", calories: 79, timeTaken: dateFormatter.date(from: "09-23-2017 12:05:53 EST")!))
+        
+        
+        
+        
+        pillHistoryData.append(HistoryData(foodName: "Bagel", calories: 256, timeTaken: dateFormatter.date(from: "09-22-2017 11:23:30")!))
+        pillHistoryData.append(HistoryData(foodName: "Orange", calories: 44, timeTaken: dateFormatter.date(from: "09-22-2017 11:56:23")!))
+        pillHistoryData.append(HistoryData(foodName: "Apple", calories: 52, timeTaken: dateFormatter.date(from: "09-22-2017 11:57:43")!))
+        pillHistoryData.append(HistoryData(foodName: "Bannana", calories: 47, timeTaken: dateFormatter.date(from: "09-23-2017 01:35:23")!))
+        pillHistoryData.append(HistoryData(foodName: "Water", calories: 0, timeTaken: dateFormatter.date(from: "09-23-2017 01:45:45")!))
+        pillHistoryData.append(HistoryData(foodName: "Bottled Water", calories: 1, timeTaken: dateFormatter.date(from: "09-23-2017 01:47:23")!))
+        pillHistoryData.append(HistoryData(foodName: "Milk", calories: 103, timeTaken: dateFormatter.date(from: "09-23-2017 10:01:57")!))
+        pillHistoryData.append(HistoryData(foodName: "Pizza", calories: 285, timeTaken: dateFormatter.date(from: "09-23-2017 10:05:32")!))
+        pillHistoryData.append(HistoryData(foodName: "Bread", calories: 79, timeTaken: dateFormatter.date(from: "09-23-2017 12:05:53")!))
+        pillHistoryData.append(HistoryData(foodName: "Bagel", calories: 256, timeTaken: dateFormatter.date(from: "09-23-2017 12:34:12")!))
+        pillHistoryData.append(HistoryData(foodName: "Water", calories: 0, timeTaken: dateFormatter.date(from: "09-23-2017 12:47:17")!))
+        pillHistoryData.append(HistoryData(foodName: "Pizza", calories: 234, timeTaken: dateFormatter.date(from: "09-23-2017 13:00:59")!))
+        pillHistoryData.append(HistoryData(foodName: "Yellow", calories: 53, timeTaken: dateFormatter.date(from: "09-23-2017 13:05:14")!))
+        pillHistoryData.append(HistoryData(foodName: "Apple", calories: 42, timeTaken: dateFormatter.date(from: "09-23-2017 13:07:46")!))
+        pillHistoryData.append(HistoryData(foodName: "Coffee", calories: 1, timeTaken: dateFormatter.date(from: "09-23-2017 13:14:59")!))
+        pillHistoryData.append(HistoryData(foodName: "Tea", calories: 2, timeTaken: dateFormatter.date(from: "09-23-2017 13:16:57")!))
 
    
         pillHistoryData.sort { (h1, h2) -> Bool in
