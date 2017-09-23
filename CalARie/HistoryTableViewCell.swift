@@ -7,7 +7,19 @@
 //
 
 import UIKit
+class HistoryTableViewCell : UITableViewCell {
+    @IBOutlet weak var date : UILabel!
+    @IBOutlet weak var food : UILabel!
+    @IBOutlet weak var calories : UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
 
-class HistoryTableViewCell:UITableViewCell{
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
     
 }

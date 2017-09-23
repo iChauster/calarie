@@ -81,7 +81,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="75" id="etd-IZ-RQn">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="75" id="etd-IZ-RQn" customClass="HistoryTableViewCell" customModule="CalARie" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="768" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="etd-IZ-RQn" id="WlT-VW-Y8v">
@@ -125,6 +125,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="calories" destination="wRf-e3-vFq" id="BnM-9f-uNl"/>
+                                            <outlet property="date" destination="8yJ-Bf-FMo" id="1mx-UU-2f6"/>
+                                            <outlet property="food" destination="0cL-DE-eCw" id="89p-KW-ygW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

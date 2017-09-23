@@ -12,13 +12,17 @@ import ScrollableGraphView
 
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return FoodManager.shared().pillHistoryData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell") as! HistoryTableViewCell
+        let item = FoodManager.shared().pillHistoryData[indexPath.row]
+        cell.food.text = item.foodName;
+        cell.date.text = String(describing:item.timeTaken)
         
-        return cell!
+        
+        return cell
     }
     
     @IBOutlet weak var histTable: UITableView!

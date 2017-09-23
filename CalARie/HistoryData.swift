@@ -11,21 +11,16 @@ import UIKit
 class HistoryData: NSObject {
     
     var foodName: String = ""
-    var maxDailyDosage: Int = 0
-    var takenToday: Int = 1
+    var calories: Int = 0
     var timeTaken: Date = Date()
     var actionStatement: String = ""
     
-    init(foodName: String, maxDailyDosage:Int = 4, todayDose: Int = 1, timeTaken: Date = Date(), actionStatement: String = "", calculateTodayDose:Bool = false){
+    init(foodName: String, calories:Int = 4, timeTaken: Date = Date(), actionStatement: String = "", calculateTodayDose:Bool = false){
         super.init()
         self.foodName = foodName
-        self.maxDailyDosage = maxDailyDosage
+        self.calories = calories
         self.timeTaken = timeTaken
-        self.takenToday = todayDose
         self.actionStatement = actionStatement
-        if calculateTodayDose{
-            self.takenToday = HistoryData.calculateTakenToday(foodName: self.foodName) + 1
-        }
     }
     
     static func calculateTakenToday(foodName: String) -> Int{
@@ -48,18 +43,15 @@ class HistoryData: NSObject {
     }
     
     func toDictionary()->[String:Any]{
-        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.dailyDosageMax: self.maxDailyDosage, PillHistoryKeys.dailyDosage : self.takenToday, PillHistoryKeys.timeTaken: self.timeTaken]
+        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.calories: self.calories, PillHistoryKeys.timeTaken: self.timeTaken]
     }
     
     init(dictionary: [String:Any]) {
         if let name = dictionary[PillHistoryKeys.name] as? String{
             self.foodName = name
         }
-        if let maxDosage = dictionary[PillHistoryKeys.dailyDosageMax] as? Int{
-            self.maxDailyDosage = maxDosage
-        }
-        if let dosage = dictionary[PillHistoryKeys.dailyDosage] as? Int{
-            self.takenToday = dosage
+        if let calories = dictionary[PillHistoryKeys.dailyDosageMax] as? Int{
+            self.calories = calories
         }
         if let timeTaken = dictionary[PillHistoryKeys.timeTaken] as? Date{
             self.timeTaken = timeTaken
