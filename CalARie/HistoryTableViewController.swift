@@ -20,7 +20,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         let item = FoodManager.shared().pillHistoryData[indexPath.row]
         cell.food.text = item.foodName;
         cell.date.text = String(describing:item.timeTaken)
-        
+        cell.calories.text = String(item.calories)
         
         return cell
     }

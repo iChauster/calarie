@@ -268,6 +268,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     lastTakenLabel.font = UIFont(name: "Avenir-HeavyOblique", size: 42)
                     //lastTakenLabel.text = "Last taken \(lastTakenTime.timestringFromNow()))"
                     lastTakenLabel.backgroundColor = .clear
+                    lastTakenLabel.textColor = .white
                     if lastTakenTime.timeIntervalSince1970 != 0 {
                         imageView.addSubview(lastTakenLabel)
                     }
@@ -437,7 +438,7 @@ extension ViewController {
         let buttonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: buttonView.frame.width, height: buttonView.frame.height))
         buttonLabel.backgroundColor = .clear
         buttonLabel.textColor = .white
-        buttonLabel.text = "CLOSE"
+        buttonLabel.text = "Consume"
         buttonLabel.font = UIFont(name: "Avenir", size: 42)
         buttonLabel.textAlignment = .center
         buttonView.addSubview(buttonLabel)
