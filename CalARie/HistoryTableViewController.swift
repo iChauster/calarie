@@ -62,6 +62,12 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         for historyData in 0..<history.count {
             let food = history[historyData] as HistoryData
             let nutrients = food.nutrition[0] as JSON
+            /*
+ 
+             calculate total calories
+             
+             */
+            
             for (_, value) in nutrients.enumerated() {
                 print(value)
                 var nutrientData = value.1
