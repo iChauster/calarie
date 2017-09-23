@@ -67,7 +67,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
                 var nutrientData = value.1
                 var name = value.0
                 if(basicJSON[name].exists()){
-                    var sum = nutrientData.double! + basicJSON[name].double!
+                    var sum = Double(nutrientData.rawString()!)! + Double(basicJSON[name].rawString()!)!
                     basicJSON[name] = JSON(sum)
                 }else{
                     basicJSON[name] = nutrientData

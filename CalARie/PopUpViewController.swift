@@ -20,14 +20,13 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nutView.dequeueReusableCell(withIdentifier: "NutCell") as! PopupViewCell
         let item = order[indexPath.row]
-<<<<<<< HEAD
+
         cell.key.text = item
         cell.val.text = nutritionData[0][item].string
-=======
+
         
-        cell.key.text = nutritionData[0][item].string
+
         
->>>>>>> 015f6339481e49e51ddd8c388f6812f6f9b53cba
         return cell
     }
     
