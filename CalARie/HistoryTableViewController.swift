@@ -45,6 +45,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         let selectedCell = self.histTable.cellForRow(at: indexPath) as! HistoryTableViewCell
         
         controller.nutritionData = selectedCell.datNutritionData
+        self.histTable.deselectRow(at: indexPath, animated: true)
         self.present(controller, animated: true, completion: nil)
     }
     
