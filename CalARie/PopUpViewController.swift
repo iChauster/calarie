@@ -19,9 +19,9 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nutView.dequeueReusableCell(withIdentifier: "NutCell") as! PopupViewCell
-        let item = order[indexPath]
+        let item = order[indexPath.row]
         
-        cell.key.text = nutritionData[0][item]
+        cell.key.text = nutritionData[0][item].string
         
         return cell
     }
