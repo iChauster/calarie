@@ -55,7 +55,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
 
         histTable.delegate = self
-        
+        var calorieSum = 0
         var basicJSON = JSON()
         //iterate, sum history and store in cache.
         var history = FoodManager.shared().pillHistoryData as [HistoryData]
@@ -67,7 +67,11 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
              calculate total calories
              
              */
-            
+            let date = food.timeTaken
+            let twentyfourBefore = Date(timeIntervalSinceNow: -3600 * 24)
+            if(date <= twentyfourBefore){
+                calorieSum += food.calories
+            }
             for (_, value) in nutrients.enumerated() {
                 print(value)
                 var nutrientData = value.1
@@ -84,6 +88,8 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
             }
         }
         print(basicJSON)
+        total.text = String(calorieSum)
+        
         //setup PieChart
        
         let chart = self.pieChartView!
