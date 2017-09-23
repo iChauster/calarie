@@ -222,7 +222,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                                 //loop through all objects in this jsonDictionary
                                 let postId = jsonDict["value"]?.stringValue
                                 if(dictionary[postId!] != nil){
-                                    dictionary[postId!] = jsonDict["value"]?.stringValue
+                                    dictionary[postId!] = jsonDict["value"]!.stringValue
                                 }
                             }
                         }
@@ -344,12 +344,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     }
                     
                     let diceRoll = Int(arc4random_uniform(UInt32(self.post.count)))
-                    
+                    print("Should be \(dictionary["Energy"]!) Calories");
                     let limitLabel = UILabel(frame: CGRect(x: 64, y: 286, width: imageView.frame.width-128, height: 63))
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
                     limitLabel.font = UIFont(name: "Avenir", size: 30)
-                    limitLabel.text = "\(dictionary["Energy"]) Calories"
+                    limitLabel.text = "\(dictionary["Energy"]!) Calories"
                     limitLabel.backgroundColor = .clear
                     imageView.addSubview(limitLabel)
                     
