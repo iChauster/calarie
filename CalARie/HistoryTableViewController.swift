@@ -69,7 +69,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
              */
             let date = food.timeTaken
             let twentyfourBefore = Date(timeIntervalSinceNow: -3600 * 24)
-            if(date <= twentyfourBefore){
+            if(date >= twentyfourBefore){
                 calorieSum += food.calories
             }
             for (_, value) in nutrients.enumerated() {
