@@ -108,6 +108,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="DLL-Iq-mie" id="AwW-mt-kYK"/>
+                                    <outlet property="delegate" destination="DLL-Iq-mie" id="3Lp-0D-klK"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -119,6 +123,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qKb-t6-8Bk"/>
                     </view>
+                    <connections>
+                        <outlet property="histTable" destination="7Wn-lu-Yjv" id="GFy-OB-p3M"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW7-EJ-PfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

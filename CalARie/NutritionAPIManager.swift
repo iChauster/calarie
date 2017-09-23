@@ -28,7 +28,7 @@ class NutritionAPIManager {
         return sharedInstance
     }
     
-    func getInfoFromFood(_ food: String, completionHandler: @escaping (((instructions: String, calories : Int)?) ->())) {
+    func getInfoFromFood(_ food: String, completionHandler: @escaping (((classification: String, information : JSON)?) ->())) {
         print("Getting usages for \(food)")
         if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
             print("Cache Hit !!!!!")
@@ -38,8 +38,9 @@ class NutritionAPIManager {
         }
         
         // Create our request URL
+        var request = URLRequest(url: URL(string : nutritionURL.absoluteString + "&q=" + food.lowercased())!)
         
-        var request = URLRequest(url: nutritionURL.appendingPathComponent("&q=").appendingPathComponent(food.lowercased()))
+        print(request.url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -61,34 +62,53 @@ class NutritionAPIManager {
                         completionHandler(nil)
                         return
                     }
-                    var instructions: String = "No instructions could be found"
-                    var found = false
-                    /*
-                    if let info = json["instructions"].string {
-                        found = true
-                        instructions = info
-                    }
-                    var maximum = 1
-                    if let maxim = json["maximum"].int{
-                        found = true
-                        maximum = maxim
-                    }
-                    if found{
-                        FoodManager.shared().drugUsageCache[drug.lowercased()] = (instructions,maximum)
+                    var classification: String = "No instructions could be found"
+                    
+                    if (!json["errors"].exists()) {
+                        var item = json["list"]["item"][0]
+                        classification = item["name"].string!
+                        var ndbno = item["ndbno"].string!
+                        print(ndbno)
+                        var facts = self.getNutritionFacts(b: ndbno)
+                        FoodManager.shared().drugUsageCache[food.lowercased()] = (classification,facts)
                         print("6----------------")
-                        completionHandler((instructions,maximum))
+                        completionHandler((classification,facts))
                         return
                     }else{
                         completionHandler(nil)
                         return
-                    }*/
-                    print(json)
+                    }
+                    
                 })
             }
             task.resume()
         }
     }
-    
+    func getNutritionFacts(b : String) {
+        print("testing with " + b);
+        var request = URLRequest(url: URL(string:"https://api.nal.usda.gov/ndb/reports/?ndbno=" + b + "&type=b&format=json&api_key=3C6hpqd584ozuRiyC4uZtZqTViLRBoXbEyZl0iRp")!)
+        DispatchQueue.global().async {
+            let task: URLSessionDataTask = self.session.dataTask(with: request) { (data, response, error) in
+                guard let data = data, error == nil else {
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                
+                DispatchQueue.main.async(execute: {
+                    // Use SwiftyJSON to parse results
+                    let json = JSON(data: data)
+                    let errorObj: JSON = json["error"]
+                    if (errorObj.dictionaryValue != [:]) {
+                        print("Error code \(errorObj["code"]): \(errorObj["message"])")
+                        return
+                    }
+                    return json
+                    
+                })
+            }
+            task.resume()
+        }
+    }
     
     func getLogoForDrug( drug: String, completionHandler: @escaping (UIImage)-> ()){
         if let cachedImage = FoodManager.shared().logoCache[drug.lowercased()]{

@@ -169,7 +169,7 @@ class GoogleAPIManager {
                         //
                         //                            }
                         //                        })
-                        apiManager.getUsageForDrug("\(response)", completionHandler: handler)
+                        apiManager.getInfoFromFood("\(response)", completionHandler: handler)
                     }
                     
                 })
