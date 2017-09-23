@@ -220,14 +220,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                             if let jsonDict = item.dictionary //jsonDict : [String : JSON]?
                             {
                                 //loop through all objects in this jsonDictionary
-                                let postId = jsonDict["value"]?.stringValue
+                                let postId = jsonDict["name"]?.stringValue
                                 if(dictionary[postId!] != nil){
                                     dictionary[postId!] = jsonDict["value"]!.stringValue
                                 }
                             }
                         }
                     
-
+                    print(dictionary)
                     //change the shit so it shows calories and stuff
                     /*
  example output : "report" : {
