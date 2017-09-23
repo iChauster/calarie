@@ -20,6 +20,7 @@
 		D92A8DA91F75BEEE00BA30CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DA71F75BEEE00BA30CE /* Main.storyboard */; };
 		D92A8DAB1F75BEEE00BA30CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */; };
 		D92A8DAE1F75BEEE00BA30CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D92A8DAC1F75BEEE00BA30CE /* LaunchScreen.storyboard */; };
+		D92E89301F76DE2A009C38B1 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92E892F1F76DE2A009C38B1 /* PopUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D92A8DAD1F75BEEE00BA30CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D92A8DAF1F75BEEE00BA30CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D92E892F1F76DE2A009C38B1 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		E0000FED12B8AF10512621D1 /* Pods-CalARie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalARie.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalARie/Pods-CalARie.debug.xcconfig"; sourceTree = "<group>"; };
 		EDA6C5C0F88F348D4B632C63 /* Pods-CalARie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalARie.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalARie/Pods-CalARie.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				2C46C9AB1F75D1A700969EAF /* FoodManager.swift */,
 				2C46C9AD1F75D1F500969EAF /* HistoryData.swift */,
 				D9248F201F75F0D800EF830D /* HistoryTableViewController.swift */,
+				D92E892F1F76DE2A009C38B1 /* PopUpViewController.swift */,
 				2C46C9A71F75C6EF00969EAF /* GoogleAPIManager.swift */,
 				D92A8DA71F75BEEE00BA30CE /* Main.storyboard */,
 				D92A8DAA1F75BEEE00BA30CE /* Assets.xcassets */,
@@ -252,6 +255,7 @@
 				2C46C9AA1F75C77200969EAF /* NutritionAPIManager.swift in Sources */,
 				D9248F211F75F0D800EF830D /* HistoryTableViewController.swift in Sources */,
 				2C46C9A81F75C6EF00969EAF /* GoogleAPIManager.swift in Sources */,
+				D92E89301F76DE2A009C38B1 /* PopUpViewController.swift in Sources */,
 				D92A8DA21F75BEEE00BA30CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

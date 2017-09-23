@@ -11,6 +11,9 @@ import DeckTransition
 import ScrollableGraphView
 
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
+    @IBOutlet weak var popUpView: UIView!
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FoodManager.shared().pillHistoryData.count
     }
@@ -30,8 +33,12 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         cell.food.text = item.foodName;
         cell.date.text = "\(time)\n\(date)"
         cell.calories.text = String(item.calories)
-        
+        cell.datNutritionData = item.nutrition
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Poppop", sender: self)
     }
     
     @IBOutlet weak var histTable: UITableView!
@@ -41,9 +48,13 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+
         histTable.delegate = self
         
         total.layer.cornerRadius = 10
+        
+        
     }
     func tableViewDidScroll(_ tableView: UITableView) {
         guard tableView.isEqual(histTable) else {
@@ -73,6 +84,21 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
             }
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == "Poppop"){
+            let projectionvc = segue.destination as! PopUpViewController
+            
+            let selectedIndexPath = self.histTable.indexPathForSelectedRow
+            let selectedCell = self.histTable.cellForRow(at: selectedIndexPath!) as! HistoryTableViewCell
+            
+            projectionvc.nutritionData = selectedCell.datNutritionData
+        }
+        
+    }
+    
+
     
     
 }

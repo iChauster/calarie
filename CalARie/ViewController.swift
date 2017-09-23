@@ -123,10 +123,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 }
 
                 
-                var nutritionFacts = JSON(components[1])
-                let cal = Int(nutritionFacts["Energy"].string!)
-                FoodManager.shared().addPillHistory(foodName: components[0], calories:cal!, nutrition: nutritionFacts)
+                if let dataFromString = components[1].data(using: .utf8, allowLossyConversion: false) {
+                    let nutritionFacts = JSON(data: dataFromString)
+                    let cal = Int(nutritionFacts[0]["Energy"].string!)
+                    FoodManager.shared().addPillHistory(foodName: components[0], calories:cal!, nutrition: nutritionFacts)
 
+                }
+               
                 return
             }
             if nutrition.contains(result.node) {
@@ -290,8 +293,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                     
                     let buttonNode = self.createButton(size: CGSize(width: imageView.frame.width - 128, height: 84))
-                    var b = JSON([dictionary]).rawString()
+                    let b = JSON([dictionary]).rawString()!
+                    print(b)
                     buttonNode.name = result.itemName + "C==3\(b)"
+                    
                     self.buttons.append(buttonNode)
                     
                     let texture = UIImage.imageWithView(view: imageView)

@@ -12,7 +12,7 @@ class HistoryTableViewCell : UITableViewCell {
     @IBOutlet weak var date : UILabel!
     @IBOutlet weak var food : UILabel!
     @IBOutlet weak var calories : UILabel!
-    let datNutritionData : JSON? = JSON.null
+    var datNutritionData : JSON? = JSON.null
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
