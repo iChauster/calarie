@@ -1,15 +1,18 @@
 PODS:
   - Alamofire (4.5.1)
+  - DeckTransition (1.3.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
+  - DeckTransition (~> 1.0)
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  DeckTransition: 62e4f215d69cf7942677b8ae1b9bc7b8becf353f
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 4704a49ae3f4c1a1b118d0c0f3b1f0cad281cad1
+PODFILE CHECKSUM: 52debf124405789c2203452e442aaeda236d3868
 
 COCOAPODS: 1.3.1

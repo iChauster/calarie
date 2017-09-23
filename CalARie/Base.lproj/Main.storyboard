@@ -50,11 +50,82 @@
                     <connections>
                         <outlet property="activityIndicator" destination="hs0-qh-nPC" id="V7S-OE-VQo"/>
                         <outlet property="sceneView" destination="2x9-SO-cxY" id="zqU-iQ-gBS"/>
+                        <segue destination="DLL-Iq-mie" kind="custom" identifier="MoveToHistory" customClass="DeckSegue" customModule="DeckTransition" id="pSp-zo-iwo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="36" y="106.59670164917542"/>
         </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="gdG-FD-eh3">
+            <objects>
+                <viewController id="DLL-Iq-mie" customClass="HistoryTableViewController" customModule="CalARie" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s0D-oh-Xag">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-lu-Yjv">
+                                <rect key="frame" x="0.0" y="169" width="375" height="498"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="498" id="lQK-la-Ftf"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="100" id="etd-IZ-RQn">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="etd-IZ-RQn" id="WlT-VW-Y8v">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yJ-Bf-FMo">
+                                                    <rect key="frame" x="8" y="40" width="50" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen Shot 2017-09-22 at 9.37.18 PM" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-AL-q91">
+                                                    <rect key="frame" x="52" y="0.0" width="20" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Entity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0cL-DE-eCw">
+                                                    <rect key="frame" x="80" y="40" width="132" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wRf-e3-vFq">
+                                                    <rect key="frame" x="293" y="40" width="74" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="bottom" secondItem="qKb-t6-8Bk" secondAttribute="bottom" id="1aP-VN-Tix"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="leading" secondItem="qKb-t6-8Bk" secondAttribute="leading" id="KFC-LO-f69"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="centerX" secondItem="s0D-oh-Xag" secondAttribute="centerX" id="KJF-fF-Cqt"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="trailing" secondItem="qKb-t6-8Bk" secondAttribute="trailing" id="Tb9-kO-Prf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qKb-t6-8Bk"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fW7-EJ-PfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="36" y="813"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="Screen Shot 2017-09-22 at 9.37.18 PM" width="38" height="204"/>
+    </resources>
 </document>

@@ -12,6 +12,7 @@ import ARKit
 import SceneKit.ModelIO
 import Vision
 import Photos
+import DeckTransition
 
 class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
 
@@ -26,6 +27,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
+        
+        
         super.viewDidLoad()
         activityIndicator.alpha = 0.0;
         // Set the view's delegate
@@ -44,6 +47,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(HistoryTableViewController.dismissKeyboard))
+        downSwipe.direction = .up;
+        self.view.addGestureRecognizer(downSwipe);
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,6 +81,16 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
     
     override var prefersStatusBarHidden : Bool {
         return true
+    }
+
+    //swipe up gesture
+    func dismissKeyboard(){
+        performSegue(withIdentifier: "MoveToHistory", sender: nil)
+        let modal = HistoryTableViewController()
+        let transitionDelegate = DeckTransitioningDelegate()
+        modal.transitioningDelegate = transitionDelegate
+        modal.modalPresentationStyle = .custom
+        present(modal, animated: true, completion: nil)
     }
     
     var fetchingResults = false

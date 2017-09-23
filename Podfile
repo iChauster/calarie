@@ -8,5 +8,6 @@ target 'CalARie' do
   # Pods for CalARie
 pod 'SwiftyJSON'
 pod 'Alamofire'
+pod 'DeckTransition', '~> 1.0'
 
 end
