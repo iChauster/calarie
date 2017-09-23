@@ -8,6 +8,7 @@
 
 import UIKit
 import DeckTransition
+import ScrollableGraphView
 
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,29 +29,29 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         
         histTable.delegate = self
     }
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView.isEqual(histTable) else {
+    func tableViewDidScroll(_ tableView: UITableView) {
+        guard tableView.isEqual(histTable) else {
             return
         }
         
         if let delegate = transitioningDelegate as? DeckTransitioningDelegate {
-            if scrollView.contentOffset.y > 0 {
+            if tableView.contentOffset.y > 0 {
                 // Normal behaviour if the `scrollView` isn't scrolled to the top
-                scrollView.bounces = true
+                tableView.bounces = true
                 delegate.isDismissEnabled = false
             } else {
-                if scrollView.isDecelerating {
+                if tableView.isDecelerating {
                     // If the `scrollView` is scrolled to the top but is decelerating
                     // that means a swipe has been performed. The view and
                     // scrollviewʼs subviews are both translated in response to this.
-                    view.transform = CGAffineTransform(translationX: 0, y: -scrollView.contentOffset.y)
-                    scrollView.subviews.forEach {
-                        $0.transform = CGAffineTransform(translationX: 0, y: scrollView.contentOffset.y)
+                    view.transform = CGAffineTransform(translationX: 0, y: -tableView.contentOffset.y)
+                    tableView.subviews.forEach {
+                        $0.transform = CGAffineTransform(translationX: 0, y: tableView.contentOffset.y)
                     }
                 } else {
                     // If the user has panned to the top, the scrollview doesnʼt bounce and
                     // the dismiss gesture is enabled.
-                    scrollView.bounces = false
+                    tableView.bounces = false
                     delegate.isDismissEnabled = true
                 }
             }

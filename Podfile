@@ -9,5 +9,6 @@ target 'CalARie' do
 pod 'SwiftyJSON'
 pod 'Alamofire'
 pod 'DeckTransition', '~> 1.0'
+pod 'ScrollableGraphView'
 
 end
