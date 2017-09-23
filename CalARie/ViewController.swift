@@ -277,6 +277,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     let limitLabel = UILabel(frame: CGRect(x: 64, y: 286, width: imageView.frame.width-128, height: 63))
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
+                    limitLabel.textColor = .white
                     limitLabel.font = UIFont(name: "Avenir", size: 30)
                     limitLabel.text = "\(dictionary["Energy"]!) Calories"
                     limitLabel.backgroundColor = .clear
