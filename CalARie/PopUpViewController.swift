@@ -10,13 +10,13 @@ import UIKit
 import SwiftyJSON
 class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nutView: UITableView!
-    var order = ["Energy","Cholesterol","Fatty acids, total staturated", "Sodium, Na", "Sugars, total", "Protein", "Carbohydrate, by difference", "Fiber", "Vitamin D (D2 + D3)", "Calcium, Ca", "Iron, Fe", "Potassium"]
+    var order = ["Energy","Cholesterol","Fatty acids, total saturated", "Sodium, Na", "Sugars, total", "Protein", "Carbohydrate, by difference", "Fiber, total dietary", "Vitamin D (D2 + D3)", "Calcium, Ca", "Iron, Fe", "Potassium, K"]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return order.count
         
     }
-    
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = nutView.dequeueReusableCell(withIdentifier: "NutCell") as! PopupViewCell
         let item = order[indexPath.row]
@@ -35,7 +35,8 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         print(nutritionData)
-        
+        self.nutView.estimatedRowHeight = 100
+        self.nutView.rowHeight = UITableViewAutomaticDimension
         popView.layer.cornerRadius = 15
         let gest = UISwipeGestureRecognizer(target: self, action: #selector(dis))
         gest.direction = .down;

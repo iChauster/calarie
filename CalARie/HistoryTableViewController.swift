@@ -49,7 +49,6 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
     }
     
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

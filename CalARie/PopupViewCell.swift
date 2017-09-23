@@ -16,7 +16,9 @@ class PopupViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    override func didMoveToSuperview() {
+        self.layoutIfNeeded()
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
