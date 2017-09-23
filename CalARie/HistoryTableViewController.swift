@@ -12,8 +12,9 @@ import ScrollableGraphView
 import Charts
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var popUpView: UIView!
-    
-    
+    @IBOutlet weak var histTable: UITableView!
+    @IBOutlet weak var total: UIView!
+    @IBOutlet weak var pieChartView : PieChartView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FoodManager.shared().pillHistoryData.count
     }
@@ -41,19 +42,55 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         performSegue(withIdentifier: "Poppop", sender: self)
     }
     
-    @IBOutlet weak var histTable: UITableView!
-    
-    @IBOutlet weak var total: UIView!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         histTable.delegate = self
         
         total.layer.cornerRadius = 10
         
+        //setup PieChart
+        
+        let chart = self.pieChartView
+        // 2. generate chart data entries
+        let track = ["Income", "Expense", "Wallet", "Bank"]
+        let money = [650, 456.13, 78.67, 856.52]
+        
+        var entries = [PieChartDataEntry]()
+        for (index, value) in money.enumerated() {
+            let entry = PieChartDataEntry()
+            entry.y = value
+            entry.label = track[index]
+            entries.append( entry)
+        }
+        
+        // 3. chart setup
+        let set = PieChartDataSet( values: entries, label: "Pie Chart")
+        // this is custom extension method. Download the code for more details.
+        var colors: [UIColor] = []
+        
+        for _ in 0..<money.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        set.colors = colors
+        let data = PieChartData(dataSet: set)
+        chart.data = data
+        chart.noDataText = "No data available"
+        // user interaction
+        chart.isUserInteractionEnabled = true
+        
+        let d = Description()
+        d.text = "iOSCharts.io"
+        chart.chartDescription = d
+        chart.centerText = "Pie Chart"
+        chart.holeRadiusPercent = 0.2
+        chart.transparentCircleColor = UIColor.clear
         
     }
     func tableViewDidScroll(_ tableView: UITableView) {
