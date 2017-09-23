@@ -14,9 +14,6 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
         </array>
-        <array key="HelveticaNeueLights.ttc">
-            <string>HelveticaNeue-Thin</string>
-        </array>
     </customFonts>
     <scenes>
         <!--View Controller-->
@@ -179,8 +176,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23,501" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z66-cc-g3F">
                                 <rect key="frame" x="25" y="495" width="251" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="42"/>
-                                <color key="textColor" red="1" green="0.96685112849999999" blue="0.97384982639999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="42"/>
+                                <color key="textColor" red="0.71931630369999999" green="0.47781240940000003" blue="0.96866780519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -207,6 +204,7 @@
                         <outlet property="histTable" destination="7Wn-lu-Yjv" id="GFy-OB-p3M"/>
                         <outlet property="pieChartView" destination="afQ-59-99a" id="fbG-gq-ffD"/>
                         <outlet property="popUpView" destination="h8A-KH-bd8" id="TFs-sJ-GWC"/>
+                        <outlet property="total" destination="Z66-cc-g3F" id="La5-Pe-te6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW7-EJ-PfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
