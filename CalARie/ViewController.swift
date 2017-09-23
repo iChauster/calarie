@@ -221,8 +221,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                             {
                                 //loop through all objects in this jsonDictionary
                                 let postId = jsonDict["value"]?.stringValue
-                                if(dictionary[postId] != nil){
-                                    dictionary[postId] = jsonDict["value"].stringValue!
+                                if(dictionary[postId!] != nil){
+                                    dictionary[postId!] = jsonDict["value"]?.stringValue
                                 }
                             }
                         }
