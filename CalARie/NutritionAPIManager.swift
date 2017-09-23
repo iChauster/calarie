@@ -14,7 +14,7 @@ class NutritionAPIManager {
     //key : 3C6hpqd584ozuRiyC4uZtZqTViLRBoXbEyZl0iRp
 
     var nutritionURL: URL {
-        return URL(string: "https://app.admirable43.hasura-app.io/")!
+        return URL(string: "https://api.nal.usda.gov/ndb/search/?format=json&ds=Standard%20Reference&sort=r&api_key=3C6hpqd584ozuRiyC4uZtZqTViLRBoXbEyZl0iRp")!
     }
     let session = URLSession.shared
     
@@ -28,18 +28,18 @@ class NutritionAPIManager {
         return sharedInstance
     }
     
-    func getUsageForDrug(_ drug: String, completionHandler: @escaping (((instructions: String,maximumDose: Int)?) ->())) {
-        print("Getting usages for \(drug)")
-        if  FoodManager.shared().drugUsageCache[drug.lowercased()] != nil {
+    func getInfoFromFood(_ food: String, completionHandler: @escaping (((instructions: String, calories : Int)?) ->())) {
+        print("Getting usages for \(food)")
+        if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
             print("Cache Hit !!!!!")
-            let cachedResult = FoodManager.shared().drugUsageCache[drug.lowercased()]
+            let cachedResult = FoodManager.shared().drugUsageCache[food.lowercased()]
             completionHandler(cachedResult)
             return
         }
         
         // Create our request URL
         
-        var request = URLRequest(url: nutritionURL.appendingPathComponent("medication/").appendingPathComponent(drug.lowercased()))
+        var request = URLRequest(url: nutritionURL.appendingPathComponent("&q=").appendingPathComponent(food.lowercased()))
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -63,6 +63,7 @@ class NutritionAPIManager {
                     }
                     var instructions: String = "No instructions could be found"
                     var found = false
+                    /*
                     if let info = json["instructions"].string {
                         found = true
                         instructions = info
@@ -80,7 +81,8 @@ class NutritionAPIManager {
                     }else{
                         completionHandler(nil)
                         return
-                    }
+                    }*/
+                    print(json)
                 })
             }
             task.resume()
