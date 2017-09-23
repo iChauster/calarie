@@ -74,15 +74,27 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
        
         let chart = self.pieChartView!
         // 2. generate chart data entries
-    
+        var dailyAmounts = [String: Double]()
+        dailyAmounts["Water"] = 2700
+        dailyAmounts["Energy"] = 10500
+        dailyAmounts["Protein"] = 56
+        dailyAmounts["Total lipid (fat)"] = 70
+        dailyAmounts["Carbohydrate, by difference"] = 310
+        dailyAmounts["Sugars, total"] = 90
+        dailyAmounts["Sodium, Na"] = 2.3 * 1000
+        dailyAmounts["Fiber, total dietary"] = 30
+
         var entries = [PieChartDataEntry]()
         var objs = 0
         for (key, object) in basicJSON {
             objs += 1
             let entry = PieChartDataEntry()
-            entry.y = object.doubleValue
-            entry.label = key
-            entries.append(entry)
+            if let da = dailyAmounts[key] {
+                entry.y = object.doubleValue / da
+                entry.label = key
+                entries.append(entry)
+            }
+            
         }
         
         // 3. chart setup
