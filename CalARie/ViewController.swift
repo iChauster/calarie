@@ -16,6 +16,9 @@ import DeckTransition
 
 class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
 
+    var post : [String] = []
+    var num : [Int] = []
+
     @IBOutlet var sceneView: ARSCNView!
     var nutrition : [SCNNode] = []
     
@@ -26,9 +29,10 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+    @IBOutlet weak var fillerView: UIView!
     override func viewDidLoad() {
         
-        
+        fillerView.layer.cornerRadius = 10
         super.viewDidLoad()
         activityIndicator.alpha = 0.0;
         // Set the view's delegate
@@ -203,10 +207,29 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                         }
                     }*/
                     //make dictionary
+                    
+
+                    
                     var nutritionFacts = result.maximum["report"]["food"]["nutrients"].array!
-                    for i in 0 ... nutritionFacts.count {
-                        //check for thingies htat match
-                    }
+
+                        for item in nutritionFacts {
+                            if let jsonDict = item.dictionary //jsonDict : [String : JSON]?
+                            {
+                                //loop through all objects in this jsonDictionary
+                                let postId = jsonDict["value"]?.stringValue
+                                
+                                
+
+                                //...etc. ...create post object..etc.
+                                if(postId != nil)
+                                {
+                                    self.post.append(postId!)
+                                    print(self.post)
+                                }
+                            }
+                        }
+                    
+
                     //change the shit so it shows calories and stuff
                     /*
  example output : "report" : {
@@ -289,30 +312,30 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     textNode.position = worldCoord
                     let backNode = SCNNode()
                     let plaque = SCNBox(width: 0.14, height: 0.1, length: 0.01, chamferRadius: 0.005)
-                    plaque.firstMaterial?.diffuse.contents = UIColor(white: 1.0, alpha: 0.6)
+                    plaque.firstMaterial?.diffuse.contents = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
                     backNode.geometry = plaque
                     backNode.position.y += 0.09
                     
+                    
+                    
                     //Set up card view
                     let imageView = UIView(frame: CGRect(x: 0, y: 0, width: 800, height: 600))
-                    imageView.backgroundColor = .clear
+                    imageView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
                     imageView.alpha = 1.0
+                    imageView.layer.cornerRadius = 15
                     let titleLabel = UILabel(frame: CGRect(x: 64, y: 64, width: imageView.frame.width-224, height: 84))
-                    titleLabel.textAlignment = .left
+                    titleLabel.textAlignment = .center
                     titleLabel.numberOfLines = 1
                     titleLabel.font = UIFont(name: "Avenir", size: 84)
                     titleLabel.text = result.itemName.capitalized
+                    titleLabel.textColor = .white
                     titleLabel.backgroundColor = .clear
                     imageView.addSubview(titleLabel)
                     
-                    let circleLabel = UILabel(frame: CGRect(x: imageView.frame.width - 144, y: 48, width: 96, height: 96))
-                    circleLabel.layer.cornerRadius = 48
-                    circleLabel.clipsToBounds = true
-                    circleLabel.backgroundColor = .red
-                    imageView.addSubview(circleLabel)
+                    
                     
                     //calories
-                    let lastTakenLabel = UILabel(frame: CGRect(x: 64, y: 180, width: imageView.frame.width-128, height: 42))
+                    let lastTakenLabel = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width-128, height: 42))
                     lastTakenLabel.textAlignment = .left
                     lastTakenLabel.numberOfLines = 1
                     lastTakenLabel.font = UIFont(name: "Avenir-HeavyOblique", size: 42)
@@ -322,11 +345,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                         imageView.addSubview(lastTakenLabel)
                     }
                     
+                    let diceRoll = Int(arc4random_uniform(UInt32(self.post.count)))
+                    
                     let limitLabel = UILabel(frame: CGRect(x: 64, y: 286, width: imageView.frame.width-128, height: 63))
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
-                    limitLabel.font = UIFont(name: "Avenir", size: 63)
-                    limitLabel.text = "\(pillsTakenToday) pills taken \(result.maximum) limit"
+                    limitLabel.font = UIFont(name: "Avenir", size: 30)
+                    limitLabel.text = "\(self.post[self.post.count - 1]) Calories"
                     limitLabel.backgroundColor = .clear
                     imageView.addSubview(limitLabel)
                     
@@ -413,11 +438,12 @@ extension ViewController {
     func createButton(size: CGSize) -> SCNNode {
         let buttonNode = SCNNode()
         let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        buttonView.backgroundColor = UIColor(red: 96/255, green: 143/255, blue: 238/255, alpha: 1.0) /* #608fee */
+        buttonView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
+        buttonView.layer.cornerRadius = 15
         let buttonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: buttonView.frame.width, height: buttonView.frame.height))
         buttonLabel.backgroundColor = .clear
         buttonLabel.textColor = .white
-        buttonLabel.text = "MARK AS TAKEN"
+        buttonLabel.text = "CLOSE"
         buttonLabel.font = UIFont(name: "Avenir", size: 42)
         buttonLabel.textAlignment = .center
         buttonView.addSubview(buttonLabel)
@@ -426,7 +452,7 @@ extension ViewController {
         let textMaterial = SCNMaterial()
         textMaterial.diffuse.contents = UIImage.imageWithView(view: buttonView)
         let blueMaterial = SCNMaterial()
-        blueMaterial.diffuse.contents = UIColor(red: 96/255, green: 143/255, blue: 238/255, alpha: 1.0) /* #608fee */
+        blueMaterial.diffuse.contents = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0) /* #608fee */
         buttonNode.geometry?.materials = [textMaterial, blueMaterial, blueMaterial, blueMaterial, blueMaterial, blueMaterial]
         //buttonNode.position.y
         //buttonNode.position.x
