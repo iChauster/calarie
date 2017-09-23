@@ -14,7 +14,8 @@ import SwiftyJSON
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var histTable: UITableView!
-    @IBOutlet weak var total: UIView!
+
+    @IBOutlet weak var total: UILabel!
     @IBOutlet weak var pieChartView : PieChartView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FoodManager.shared().pillHistoryData.count
@@ -55,7 +56,6 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
 
         histTable.delegate = self
         
-        total.layer.cornerRadius = 10
         var basicJSON = JSON()
         //iterate, sum history and store in cache.
         var history = FoodManager.shared().pillHistoryData as [HistoryData]
