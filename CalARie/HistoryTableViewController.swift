@@ -40,7 +40,12 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Poppop", sender: self)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "pop") as! PopUpViewController
+        let selectedCell = self.histTable.cellForRow(at: indexPath) as! HistoryTableViewCell
+        
+        controller.nutritionData = selectedCell.datNutritionData
+        self.present(controller, animated: true, completion: nil)
     }
     
    
