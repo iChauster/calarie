@@ -10,6 +10,8 @@ import UIKit
 
 class PopupViewCell: UITableViewCell {
 
+    @IBOutlet weak var key: UILabel!
+    @IBOutlet weak var val: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

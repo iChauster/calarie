@@ -271,10 +271,10 @@
                                             <constraint firstAttribute="width" constant="652" id="t3T-wC-QA6"/>
                                         </constraints>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NutCell" rowHeight="60" id="4Sm-bW-ZuF">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NutCell" rowHeight="60" id="4Sm-bW-ZuF" customClass="PopupViewCell" customModule="CalARie" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="652" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Sm-bW-ZuF" id="viV-Ud-i6r">
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Sm-bW-ZuF" id="viV-Ud-i6r" customClass="PopupViewCell" customModule="CalARie" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="652" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
@@ -305,6 +305,10 @@
                                                         <constraint firstItem="nx7-Kb-bIw" firstAttribute="leading" secondItem="viV-Ud-i6r" secondAttribute="leadingMargin" constant="34" id="pOr-h0-tRp"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="key" destination="nx7-Kb-bIw" id="XkY-m7-5oT"/>
+                                                    <outlet property="val" destination="j5x-4u-V8g" id="WEM-eD-viU"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <sections/>

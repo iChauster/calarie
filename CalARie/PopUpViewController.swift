@@ -10,19 +10,20 @@ import UIKit
 import SwiftyJSON
 class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nutView: UITableView!
+    var order = ["Cholesterol","Fatty acids, total staturated", "Energy", "Fiber", "Sodium"]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return order.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = nutView.dequeueReusableCell(withIdentifier: "NutCell")
-        let item = nutritionData[indexPath.row]
+        let cell = nutView.dequeueReusableCell(withIdentifier: "NutCell") as! PopupViewCell
+        let item = order[indexPath]
         
+        cell.key.text = nutritionData[0][item]
         
-        
-        return cell!
+        return cell
     }
     
     @IBOutlet weak var popView: UIView!
