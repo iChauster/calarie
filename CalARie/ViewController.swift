@@ -121,7 +121,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     continue
                 }
                 
-                FoodManager.shared().addPillHistory(foodName: components[0], maxDailyDosage: Int(components[1])!)
+                FoodManager.shared().addPillHistory(foodName: components[0], calories: Int(components[1])!)
                 return
             }
             if nutrition.contains(result.node) {
