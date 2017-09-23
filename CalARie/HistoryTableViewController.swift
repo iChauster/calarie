@@ -9,7 +9,7 @@
 import UIKit
 import DeckTransition
 import ScrollableGraphView
-
+import Charts
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var popUpView: UIView!
     
