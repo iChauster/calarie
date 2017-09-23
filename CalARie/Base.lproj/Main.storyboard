@@ -263,7 +263,7 @@
                                 <rect key="frame" x="54" y="120" width="660" height="804"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p9d-uo-AYj">
-                                        <rect key="frame" x="21" y="99" width="631" height="683"/>
+                                        <rect key="frame" x="21" y="21" width="631" height="761"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NutCell" rowHeight="44" id="4Sm-bW-ZuF" customClass="PopupViewCell" customModule="CalARie" customModuleProvider="target">
@@ -274,14 +274,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-Kb-bIw">
-                                                            <rect key="frame" x="8" y="6" width="509" height="30"/>
+                                                            <rect key="frame" x="8" y="6" width="398" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja7-P0-TWe">
-                                                            <rect key="frame" x="525" y="6" width="66" height="30"/>
+                                                            <rect key="frame" x="426" y="6" width="165" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="textColor" red="0.0" green="0.66666666669999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -306,16 +306,15 @@
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nutrition Facts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJG-ET-yUE">
-                                        <rect key="frame" x="24" y="25" width="273" height="48"/>
+                                        <rect key="frame" x="24" y="-67" width="273" height="48"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <color key="textColor" red="0.24324519929999999" green="0.2432338148" blue="0.24323861299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="p9d-uo-AYj" firstAttribute="top" secondItem="h8A-KH-bd8" secondAttribute="top" constant="99" id="4Cq-uT-KA6"/>
+                                    <constraint firstItem="p9d-uo-AYj" firstAttribute="top" secondItem="h8A-KH-bd8" secondAttribute="top" constant="21" id="4Cq-uT-KA6"/>
                                     <constraint firstAttribute="bottom" secondItem="p9d-uo-AYj" secondAttribute="bottom" constant="22" id="EFu-Jg-hRZ"/>
                                     <constraint firstItem="p9d-uo-AYj" firstAttribute="centerX" secondItem="h8A-KH-bd8" secondAttribute="centerX" constant="6.5" id="aGL-qF-Xpf"/>
                                     <constraint firstItem="p9d-uo-AYj" firstAttribute="leading" secondItem="h8A-KH-bd8" secondAttribute="leading" constant="21" id="ysP-u1-G9S"/>
