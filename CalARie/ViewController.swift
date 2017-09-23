@@ -13,6 +13,7 @@ import SceneKit.ModelIO
 import Vision
 import Photos
 import DeckTransition
+import SwiftyJSON
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -120,7 +121,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     print("Malformed node name")
                     continue
                 }
-                
+                let b = JSON(components[1])
+                var cal = b[
                 FoodManager.shared().addPillHistory(foodName: components[0], calories: Int(components[1])!)
                 return
             }
@@ -285,7 +287,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                     
                     let buttonNode = self.createButton(size: CGSize(width: imageView.frame.width - 128, height: 84))
-                    buttonNode.name = result.itemName + "C==3\(result.maximum)"
+                    buttonNode.name = result.itemName + "C==3\(dictionary)"
                     self.buttons.append(buttonNode)
                     
                     let texture = UIImage.imageWithView(view: imageView)
