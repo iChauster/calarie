@@ -23,11 +23,14 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
     
     @IBOutlet weak var histTable: UITableView!
     
+    @IBOutlet weak var total: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         histTable.delegate = self
+        
+        total.layer.cornerRadius = 10
     }
     func tableViewDidScroll(_ tableView: UITableView) {
         guard tableView.isEqual(histTable) else {

@@ -113,8 +113,13 @@
                                     <outlet property="delegate" destination="DLL-Iq-mie" id="3Lp-0D-klK"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nCn-yj-je7">
+                                <rect key="frame" x="16" y="587" width="343" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.71931630369999999" green="0.47781240940000003" blue="0.96866780519999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.14834436774253845" green="0.1698804497718811" blue="0.27059853076934814" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="7Wn-lu-Yjv" firstAttribute="bottom" secondItem="qKb-t6-8Bk" secondAttribute="bottom" id="1aP-VN-Tix"/>
                             <constraint firstItem="7Wn-lu-Yjv" firstAttribute="leading" secondItem="qKb-t6-8Bk" secondAttribute="leading" id="KFC-LO-f69"/>
@@ -125,11 +130,12 @@
                     </view>
                     <connections>
                         <outlet property="histTable" destination="7Wn-lu-Yjv" id="GFy-OB-p3M"/>
+                        <outlet property="total" destination="nCn-yj-je7" id="QWJ-3D-1bZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fW7-EJ-PfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="813"/>
+            <point key="canvasLocation" x="36" y="812.74362818590714"/>
         </scene>
     </scenes>
     <resources>
