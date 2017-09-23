@@ -29,7 +29,7 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
             if let da = dailyAmounts[item] {
                 let doub = value! / da
                 let p = round(100.0 * doub) / 100.0
-                cell.percentage.text = String(p)
+                cell.percentage.text = String(p) + "%"
             }else{
                 cell.percentage.text = "0%"
             }
