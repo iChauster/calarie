@@ -30,12 +30,12 @@ class NutritionAPIManager {
     
     func getInfoFromFood(_ food: String, completionHandler: @escaping (((classification: String, information : JSON)?) ->())) {
         print("Getting usages for \(food)")
-        /*if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
+        if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
             print("Cache Hit !!!!!")
             let cachedResult = FoodManager.shared().drugUsageCache[food.lowercased()]
             completionHandler(cachedResult)
             return
-        }*/
+        }
         
         // Create our request URL
         var request = URLRequest(url: URL(string : nutritionURL.absoluteString + "&q=" + food.lowercased())!)
