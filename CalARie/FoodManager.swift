@@ -48,8 +48,8 @@ class FoodManager {
     
     
     
-    func addPillHistory(foodName: String, calories:Int, timeTaken:Date = Date()){
-        let pillHistory = HistoryData(foodName: foodName, calories: calories, timeTaken: timeTaken, calculateTodayDose: true)
+    func addPillHistory(foodName: String, calories:Int, nutrition : JSON, timeTaken:Date = Date()){
+        let pillHistory = HistoryData(foodName: foodName, calories: calories, timeTaken: timeTaken, calculateTodayDose: true, nutrition : nutrition)
         pillHistoryData.append(pillHistory)
         pillHistoryData.sort { (h1, h2) -> Bool in
             return h1.timeTaken > h2.timeTaken
@@ -69,5 +69,6 @@ struct PillHistoryKeys {
     static let calorieIntake = "Calories"
     static let timeTaken = "TimeTaken"
     static let actionStatement = "ActionStatement"
+    static let nutrition = "Nutrition"
 }
 

@@ -121,9 +121,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     print("Malformed node name")
                     continue
                 }
-                let b = JSON(components[1])
-                var cal = b[
-                FoodManager.shared().addPillHistory(foodName: components[0], calories: Int(components[1])!)
+                var nutritionFacts = JSON(components[1])
+                let cal = Int(nutritionFacts["Energy"].string!)
+                FoodManager.shared().addPillHistory(foodName: components[0], calories:cal!, nutrition: nutritionFacts)
                 return
             }
             if nutrition.contains(result.node) {
@@ -287,7 +287,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     }
                     
                     let buttonNode = self.createButton(size: CGSize(width: imageView.frame.width - 128, height: 84))
-                    buttonNode.name = result.itemName + "C==3\(dictionary)"
+                    var b = JSON(dictionary).string
+                    buttonNode.name = result.itemName + "C==3\(b)"
                     self.buttons.append(buttonNode)
                     
                     let texture = UIImage.imageWithView(view: imageView)
