@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nutView: UITableView!
-    var order = ["Cholesterol","Fatty acids, total staturated", "Energy", "Fiber", "Sodium"]
+    var order = ["Energy","Cholesterol","Fatty acids, total staturated", "Sodium", "Sugars, total", "Protein", "Carbohydrate, by difference", "Fiber", "Vitamin D (D2 + D3)", "Calcium, Ca", "Iron, Fe", "Potassium"]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return order.count
