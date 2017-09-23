@@ -17,12 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="iTunesArtwork" translatesAutoresizingMaskIntoConstraints="NO" id="48j-rT-CoT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Improved" translatesAutoresizingMaskIntoConstraints="NO" id="48j-rT-CoT">
                                 <rect key="frame" x="112" y="258" width="150" height="150"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Hsj-2N-eh2"/>
+                                    <constraint firstAttribute="height" constant="150" id="PnL-wC-ZLV"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.12941455841064453" green="0.12940752506256104" blue="0.1294105052947998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="48j-rT-CoT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VoS-Eh-kCZ"/>
+                            <constraint firstItem="48j-rT-CoT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mXl-nZ-kG0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -32,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="iTunesArtwork" width="512" height="512"/>
+        <image name="Improved" width="1024" height="1024"/>
     </resources>
 </document>
