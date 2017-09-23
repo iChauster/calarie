@@ -8,19 +8,21 @@
 
 
 import UIKit
+import SwiftyJSON
 class HistoryData: NSObject {
     
     var foodName: String = ""
     var calories: Int = 0
     var timeTaken: Date = Date()
     var actionStatement: String = ""
-    
-    init(foodName: String, calories:Int = 4, timeTaken: Date = Date(), actionStatement: String = "", calculateTodayDose:Bool = false){
+    var nutrition : JSON = JSON.null;
+    init(foodName: String, calories:Int = 4, timeTaken: Date = Date(), actionStatement: String = "", calculateTodayDose:Bool = false, nutrition : JSON = JSON.null){
         super.init()
         self.foodName = foodName
         self.calories = calories
         self.timeTaken = timeTaken
         self.actionStatement = actionStatement
+        self.nutrition = nutrition;
     }
     
     static func calculateTakenToday(foodName: String) -> Int{
@@ -43,7 +45,7 @@ class HistoryData: NSObject {
     }
     
     func toDictionary()->[String:Any]{
-        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.calorieIntake: self.calories, PillHistoryKeys.timeTaken: self.timeTaken]
+        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.calorieIntake: self.calories, PillHistoryKeys.timeTaken: self.timeTaken, PillHistoryKeys.nutrition : self.nutrition]
     }
     
     init(dictionary: [String:Any]) {
@@ -58,6 +60,9 @@ class HistoryData: NSObject {
         }
         if let actionStatment = dictionary[PillHistoryKeys.actionStatement] as? String{
             self.actionStatement = actionStatment
+        }
+        if let nutrition = dictionary[PillHistoryKeys.nutrition] as? String{
+            self.nutrition = JSON(nutrition)
         }
     }
     

@@ -178,9 +178,6 @@ class GoogleAPIManager {
         }
     }
     
-    func fuc(){
-        
-    }
     
     func distanceFromPointToCenterSize(p1:CGPoint, s2:CGSize) -> Double {
         let midSize = CGPoint(x: s2.width / 2, y: s2.height / 2)
