@@ -209,7 +209,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     //make dictionary
                     
                     
-                    var dictionary = Dictionary()
+                    var dictionary = Dictionary<String, String>()
                     dictionary["Energy"] = "";
                     dictionary["Sugars, total"] = ""
                     dictionary["Total lipid (fat)"] = ""
