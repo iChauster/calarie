@@ -113,12 +113,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let cardHitTestResults = sceneView.hitTest(gestureRecognize.location(in: sceneView), options: nil)
         
         for result in cardHitTestResults {
-            if nutrition.contains(result.node) {
+            print("CARD HIT")
+            print(result)
+            if buttons.contains(result.node) {
                 guard let components = result.node.name?.components(separatedBy: "C==3") else {
                     print("Malformed node name")
                     continue
                 }
-                //DataManager.shared().addPillHistory(drugName: components[0], maxDailyDosage: Int(components[1])!)
+                
+                FoodManager.shared().addPillHistory(foodName: components[0], maxDailyDosage: Int(components[1])!)
                 return
             }
             if nutrition.contains(result.node) {
