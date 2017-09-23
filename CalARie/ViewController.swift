@@ -363,11 +363,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 }
 extension ViewController : UIGestureRecognizerDelegate {
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == tapGesture{
+        /*if gestureRecognizer == tapGesture{
             if let mainHistoryVC = self.mainHistoryVC{
                 return  mainHistoryVC.view.frame.contains(gestureRecognizer.location(in: self.view)) == false
             }
-        }
+        } */
         return true
     }
     
