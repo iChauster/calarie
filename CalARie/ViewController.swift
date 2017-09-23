@@ -436,6 +436,7 @@ extension ViewController {
         let buttonNode = SCNNode()
         let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
         buttonView.backgroundColor = UIColor(red: 96/255, green: 143/255, blue: 238/255, alpha: 1.0) /* #608fee */
+        buttonView.layer.cornerRadius = 48
         let buttonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: buttonView.frame.width, height: buttonView.frame.height))
         buttonLabel.backgroundColor = .clear
         buttonLabel.textColor = .white
