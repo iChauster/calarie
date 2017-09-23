@@ -27,7 +27,7 @@ class GoogleAPIManager {
         return sharedInstance
     }
     
-    func identifyDrug(image: UIImage, completionHandler:@escaping (((itemName: String, instructions: String, maximum: Int)?) -> ())) {
+    func identifyDrug(image: UIImage, completionHandler:@escaping (((itemName: String, instructions: String, maximum: JSON)?) -> ())) {
         // Base64 encode the image and create the request
         let binaryImagePacket = base64EncodeImage(image)
         
@@ -57,7 +57,7 @@ class GoogleAPIManager {
         return (imagedata.base64EncodedString(options: .endLineWithCarriageReturn), image.size)
     }
     
-    func createRequest(with imageBase64: (String, CGSize), completionHandler: @escaping (((itemName: String, instructions: String, maximum: Int)?) -> ())) {
+    func createRequest(with imageBase64: (String, CGSize), completionHandler: @escaping (((itemName: String, instructions: String, maximum: JSON)?) -> ())) {
         // Create our request URL
         
         var request = URLRequest(url: googleURL)
@@ -136,10 +136,10 @@ class GoogleAPIManager {
                     }
                     print(responses)
                     var lowestResponseNum = 1000
-                    var lowestResponse: (instructions: String, maximum: Int)? = nil
+                    var lowestResponse: (classification: String, data: JSON)? = nil
                     for response in responses {
                         let handler = {
-                            (data: (instructions: String, maximum: Int)?) in
+                            (data: (classification: String, data: JSON)?) in
                             if data != nil {
                                 let responseIndex = responses.index(of: response)
                                 print("Response: \(responseIndex) \(response)")
@@ -155,9 +155,9 @@ class GoogleAPIManager {
                                     completionHandler(nil)
                                 }else{
                                     print("FINAL RESULT")
-                                    print("\(responses[lowestResponseNum]), \nmax: \(lowestResponse!.maximum), \ninstructions: \(lowestResponse!.instructions)")
+                                    print("\(responses[lowestResponseNum])")
                                     print("7----------------")
-                                    completionHandler((responses[lowestResponseNum], lowestResponse!.instructions, lowestResponse!.maximum))
+                                    completionHandler((responses[lowestResponseNum], lowestResponse!.classification, lowestResponse!.data))
                                     
                                 }
                             }

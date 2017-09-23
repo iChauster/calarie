@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 enum HistoryVisible {
     case Visible
     case Hidden
@@ -76,7 +76,7 @@ class FoodManager {
     
     var pillHistoryData:[HistoryData] = [HistoryData]()
     var logoCache = [String:UIImage]()
-    var drugUsageCache = [String:(String, Int)] ()
+    var drugUsageCache = [String:(String, JSON)] ()
     
 }
 

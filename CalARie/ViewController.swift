@@ -186,6 +186,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     self.activityIndicator.alpha = 0.0;
                 }
                 if let result = result {
+                    print(result);
                     print("3----------------")
                     var pillsTakenToday = 0
                     var lastTakenTime = Date(timeIntervalSince1970: 0)

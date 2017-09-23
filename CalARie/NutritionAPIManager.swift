@@ -30,12 +30,12 @@ class NutritionAPIManager {
     
     func getInfoFromFood(_ food: String, completionHandler: @escaping (((classification: String, information : JSON)?) ->())) {
         print("Getting usages for \(food)")
-        if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
+        /*if  FoodManager.shared().drugUsageCache[food.lowercased()] != nil {
             print("Cache Hit !!!!!")
             let cachedResult = FoodManager.shared().drugUsageCache[food.lowercased()]
             completionHandler(cachedResult)
             return
-        }
+        }*/
         
         // Create our request URL
         var request = URLRequest(url: URL(string : nutritionURL.absoluteString + "&q=" + food.lowercased())!)
@@ -69,10 +69,8 @@ class NutritionAPIManager {
                         classification = item["name"].string!
                         var ndbno = item["ndbno"].string!
                         print(ndbno)
-                        var facts = self.getNutritionFacts(b: ndbno)
-                        FoodManager.shared().drugUsageCache[food.lowercased()] = (classification,facts)
-                        print("6----------------")
-                        completionHandler((classification,facts))
+                        self.getNutritionFacts(c:classification, b: ndbno, f : food, completionHandler:completionHandler)
+                        
                         return
                     }else{
                         completionHandler(nil)
@@ -84,7 +82,7 @@ class NutritionAPIManager {
             task.resume()
         }
     }
-    func getNutritionFacts(b : String) {
+    func getNutritionFacts(c: String, b : String, f:String, completionHandler:@escaping (((classification: String, information : JSON)?) ->())) {
         print("testing with " + b);
         var request = URLRequest(url: URL(string:"https://api.nal.usda.gov/ndb/reports/?ndbno=" + b + "&type=b&format=json&api_key=3C6hpqd584ozuRiyC4uZtZqTViLRBoXbEyZl0iRp")!)
         DispatchQueue.global().async {
@@ -102,7 +100,10 @@ class NutritionAPIManager {
                         print("Error code \(errorObj["code"]): \(errorObj["message"])")
                         return
                     }
-                    return json
+                    FoodManager.shared().drugUsageCache[f.lowercased()] = (c,json)
+                    print(json)
+                    print("6----------------")
+                    completionHandler((c,json))
                     
                 })
             }
