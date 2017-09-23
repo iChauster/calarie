@@ -10,10 +10,12 @@ import UIKit
 import DeckTransition
 import ScrollableGraphView
 import Charts
+import SwiftyJSON
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var popUpView: UIView!
-    
-    
+    @IBOutlet weak var histTable: UITableView!
+    @IBOutlet weak var total: UIView!
+    @IBOutlet weak var pieChartView : PieChartView!
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return FoodManager.shared().pillHistoryData.count
     }
@@ -41,19 +43,70 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         performSegue(withIdentifier: "Poppop", sender: self)
     }
     
-    @IBOutlet weak var histTable: UITableView!
-    
-    @IBOutlet weak var total: UIView!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
 
         histTable.delegate = self
         
         total.layer.cornerRadius = 10
+        var basicJSON = JSON()
+        //iterate, sum history and store in cache.
+        var history = FoodManager.shared().pillHistoryData as [HistoryData]
+        for historyData in 0...history.count {
+            var food = history[historyData] as HistoryData
+            var nutrients = food.nutrition as JSON
+            for n in 0...nutrients {
+                var nutrientData = nutrients[n]
+                if(basicJSON[nutrientData.name].exists()){
+                    basicJSON[nutrientData.name] += nutrientData["value"]
+                }else{
+                    basicJSON[nutrientData.name] = nutrientData["value"]
+                }
+            }
+        }
+        print(basicJSON)
+        //setup PieChart
+       
+        let chart = self.pieChartView
+        // 2. generate chart data entries
+    
+        var entries = [PieChartDataEntry]()
+        var objs = 0
+        for (key, object) in basicJSON {
+            objs += 1
+            let entry = PieChartDataEntry()
+            entry.y = object
+            entry.label = key
+            entries.append(entry)
+        }
         
+        // 3. chart setup
+        let set = PieChartDataSet( values: entries, label: "Nutrients")
+        // this is custom extension method. Download the code for more details.
+        var colors: [UIColor] = []
+        
+        for _ in 0..<objs {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        set.colors = colors
+        let data = PieChartData(dataSet: set)
+        chart.data = data
+        chart.noDataText = "No data available"
+        // user interaction
+        chart.isUserInteractionEnabled = true
+        
+        let d = Description()
+        d.text = "CALARIE"
+        chart.chartDescription = d
+        chart.centerText = "Nutrient Chart"
+        chart.holeRadiusPercent = 0.2
+        chart.transparentCircleColor = UIColor.clear
         
     }
     func tableViewDidScroll(_ tableView: UITableView) {
