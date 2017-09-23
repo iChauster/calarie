@@ -113,7 +113,6 @@ class GoogleAPIManager {
                     if (errorObj.dictionaryValue != [:]) {
                         print("Error code \(errorObj["code"]): \(errorObj["message"])")
                     }
-                    //                    print(json)
                     var responses: [String] = []
                     if let logoResults = json["responses"][0]["logoAnnotations"].array, logoResults.count > 0 {
                         for item in logoResults{
@@ -136,7 +135,6 @@ class GoogleAPIManager {
                     responses = responses.map {
                         $0.replacingOccurrences(of: " ", with: "-")
                     }
-                    print(responses)
                     var lowestResponseNum = 1000
                     var lowestResponse: (classification: String, data: JSON)? = nil
                     for response in responses {
@@ -157,7 +155,6 @@ class GoogleAPIManager {
                                     completionHandler(nil)
                                 }else{
                                     print("FINAL RESULT")
-                                    print("\(responses[lowestResponseNum])")
                                     print("7----------------")
                                     completionHandler((responses[lowestResponseNum], lowestResponse!.classification, lowestResponse!.data))
                                     

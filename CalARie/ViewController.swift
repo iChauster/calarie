@@ -14,7 +14,7 @@ import Vision
 import Photos
 import DeckTransition
 
-class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate {
 
     var post : [String] = []
     var num : [Int] = []
@@ -228,78 +228,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                         }
                     
                     print(dictionary)
-                    //change the shit so it shows calories and stuff
-                    /*
- example output : "report" : {
- "food" : {
- "ds" : "Standard Reference",
- "ndbno" : "08123",
- "nutrients" : [
- {
- "unit" : "g",
- "derivation" : "NONE",
- "nutrient_id" : "255",
- "group" : "Proximates",
- "value" : "84.03",
- "name" : "Water",
- "measures" : [
- {
- "label" : "cup, cooked",
- "eunit" : "g",
- "value" : "196.63",
- "qty" : 1,
- "eqv" : 234
- },
- {
- "label" : "cup, dry, yields",
- "eunit" : "g",
- "value" : "420.99",
- "qty" : 1,
- "eqv" : 501
- },
- {
- "label" : "oz, dry, yields",
- "eunit" : "g",
- "value" : "148.73",
- "qty" : 1,
- "eqv" : 177
- },
- {
- "label" : "packet, dry, yields",
- "eunit" : "g",
- "value" : "148.73",
- "qty" : 1,
- "eqv" : 177
- }
- ]
- },
- {
- "unit" : "kcal",
- "derivation" : "NC",
- "nutrient_id" : "208",
- "group" : "Proximates",
- "value" : "68",
- "name" : "Energy",
- "measures" : [
- {
- "label" : "cup, cooked",
- "eunit" : "g",
- "value" : "159",
- "qty" : 1,
- "eqv" : 234
- },
- {
- "label" : "cup, dry, yields",
- "eunit" : "g",
- "value" : "341",
- "qty" : 1,
- "eqv" : 501
- },
- {
- "label" : "oz, dry, yields",
- "eunit" : "g",
- "value" : "120",
- "qty" : 1, */
+                   
                     let billboardConstraint = SCNBillboardConstraint()
                     billboardConstraint.freeAxes = SCNBillboardAxis.Y
                     
@@ -432,12 +361,78 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
         
     }
 }
+extension ViewController : UIGestureRecognizerDelegate {
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == tapGesture{
+            if let mainHistoryVC = self.mainHistoryVC{
+                return  mainHistoryVC.view.frame.contains(gestureRecognizer.location(in: self.view)) == false
+            }
+        }
+        return true
+    }
+    
+    func handlePanGesture(_ recognizer: UIPanGestureRecognizer){
+        /*
+        if let mainHistoryVC = self.mainHistoryVC{
+            switch recognizer.state {
+            case .began:
+                print("Began sliding VC")
+            case .changed:
+                let translation = recognizer.translation(in: view).y
+                mainHistoryVC.view.center.y += translation
+                recognizer.setTranslation(CGPoint.zero, in: view)
+            case .ended:
+                if abs(recognizer.velocity(in: view).y) > 200{
+                    if recognizer.velocity(in: view).y < -200{
+                        toggle(state: .Visible)
+                    }else if recognizer.velocity(in: view).y > 200{
+                        toggle(state: .Hidden)
+                    }
+                }else{
+                    if mainHistoryVC.view.center.y > self.view.frame.height / 2.0{
+                        toggle(state: .Hidden)
+                    }else{
+                        toggle(state: .Visible)
+                    }
+                }
+            default:
+                break
+            }
+        }*/
+    }
+}
 extension ViewController {
+    
+    func toggle(state: HistoryVisible){
+        /*
+        if let mainHistoryVC = self.mainHistoryVC {
+            print("Animating History State Change")
+            UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 5.0, options: .curveEaseOut, animations: {
+                
+                if state == .Visible{
+                    mainHistoryVC.view.frame = UIScreen.main.bounds
+                }else if state == .Hidden{
+                    mainHistoryVC.view.frame.origin.y = self.view.frame.height - self.historyYOffset
+                }
+            }, completion:{ (finished) in
+                //NotificationCenter.default.post(name: toggleHistoryNotification, object: nil)
+            })
+            FoodManager.shared().historyState = state
+        }*/
+    }
+    
+    func toggleState(){
+        if FoodManager.shared().historyState == .Visible{
+            toggle(state: .Hidden)
+        }else{
+            toggle(state: .Visible)
+        }
+    }
+    
     func createButton(size: CGSize) -> SCNNode {
         let buttonNode = SCNNode()
         let buttonView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        buttonView.backgroundColor = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.3)
-        buttonView.layer.cornerRadius = 15
+        buttonView.backgroundColor = UIColor(red: 96/255, green: 143/255, blue: 238/255, alpha: 1.0) /* #608fee */
         let buttonLabel = UILabel(frame: CGRect(x: 0, y: 0, width: buttonView.frame.width, height: buttonView.frame.height))
         buttonLabel.backgroundColor = .clear
         buttonLabel.textColor = .white
@@ -450,12 +445,13 @@ extension ViewController {
         let textMaterial = SCNMaterial()
         textMaterial.diffuse.contents = UIImage.imageWithView(view: buttonView)
         let blueMaterial = SCNMaterial()
-        blueMaterial.diffuse.contents = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0) /* #608fee */
+        blueMaterial.diffuse.contents = UIColor(red: 96/255, green: 143/255, blue: 238/255, alpha: 1.0) /* #608fee */
         buttonNode.geometry?.materials = [textMaterial, blueMaterial, blueMaterial, blueMaterial, blueMaterial, blueMaterial]
         //buttonNode.position.y
         //buttonNode.position.x
         return buttonNode
     }
+    
 }
 extension UIImage {
     
