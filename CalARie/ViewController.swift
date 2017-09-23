@@ -27,7 +27,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        activityIndicator.alpha = 0.0;
         // Set the view's delegate
         sceneView.delegate = self
         
@@ -156,12 +156,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                 return
             } else {
                 fetchingResults = true
+                activityIndicator.alpha = 1.0
                 activityIndicator.startAnimating()
             }
             
             GoogleAPIManager.shared().identifyDrug(image: image, completionHandler: { (result) in
                 self.fetchingResults = false
                 self.activityIndicator.stopAnimating()
+                activityIndicator.alpha = 0.0;
                 if let result = result {
                     print("3----------------")
                     var pillsTakenToday = 0
