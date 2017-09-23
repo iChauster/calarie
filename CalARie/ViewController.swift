@@ -163,7 +163,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
             GoogleAPIManager.shared().identifyDrug(image: image, completionHandler: { (result) in
                 self.fetchingResults = false
                 self.activityIndicator.stopAnimating()
-                activityIndicator.alpha = 0.0;
+                self.activityIndicator.alpha = 0.0;
                 if let result = result {
                     print("3----------------")
                     var pillsTakenToday = 0
