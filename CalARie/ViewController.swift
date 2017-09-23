@@ -202,7 +202,83 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                             }
                         }
                     }*/
-                    
+                    //make dictionary
+                    var nutritionFacts = result.maximum["report"]["food"]["nutrients"].array!
+                    for i in 0 ... nutritionFacts.count {
+                        //check for thingies htat match
+                    }
+                    //change the shit so it shows calories and stuff
+                    /*
+ example output : "report" : {
+ "food" : {
+ "ds" : "Standard Reference",
+ "ndbno" : "08123",
+ "nutrients" : [
+ {
+ "unit" : "g",
+ "derivation" : "NONE",
+ "nutrient_id" : "255",
+ "group" : "Proximates",
+ "value" : "84.03",
+ "name" : "Water",
+ "measures" : [
+ {
+ "label" : "cup, cooked",
+ "eunit" : "g",
+ "value" : "196.63",
+ "qty" : 1,
+ "eqv" : 234
+ },
+ {
+ "label" : "cup, dry, yields",
+ "eunit" : "g",
+ "value" : "420.99",
+ "qty" : 1,
+ "eqv" : 501
+ },
+ {
+ "label" : "oz, dry, yields",
+ "eunit" : "g",
+ "value" : "148.73",
+ "qty" : 1,
+ "eqv" : 177
+ },
+ {
+ "label" : "packet, dry, yields",
+ "eunit" : "g",
+ "value" : "148.73",
+ "qty" : 1,
+ "eqv" : 177
+ }
+ ]
+ },
+ {
+ "unit" : "kcal",
+ "derivation" : "NC",
+ "nutrient_id" : "208",
+ "group" : "Proximates",
+ "value" : "68",
+ "name" : "Energy",
+ "measures" : [
+ {
+ "label" : "cup, cooked",
+ "eunit" : "g",
+ "value" : "159",
+ "qty" : 1,
+ "eqv" : 234
+ },
+ {
+ "label" : "cup, dry, yields",
+ "eunit" : "g",
+ "value" : "341",
+ "qty" : 1,
+ "eqv" : 501
+ },
+ {
+ "label" : "oz, dry, yields",
+ "eunit" : "g",
+ "value" : "120",
+ "qty" : 1, */
                     let billboardConstraint = SCNBillboardConstraint()
                     billboardConstraint.freeAxes = SCNBillboardAxis.Y
                     
@@ -235,6 +311,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     circleLabel.backgroundColor = .red
                     imageView.addSubview(circleLabel)
                     
+                    //calories
                     let lastTakenLabel = UILabel(frame: CGRect(x: 64, y: 180, width: imageView.frame.width-128, height: 42))
                     lastTakenLabel.textAlignment = .left
                     lastTakenLabel.numberOfLines = 1

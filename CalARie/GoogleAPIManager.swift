@@ -84,6 +84,8 @@ class GoogleAPIManager {
                 ]
             ]
         ]
+        
+        
         let jsonObject = JSON(jsonRequest)
         
         // Serialize the JSON
@@ -177,6 +179,10 @@ class GoogleAPIManager {
             
             task.resume()
         }
+    }
+    
+    func fuc(){
+        
     }
     
     func distanceFromPointToCenterSize(p1:CGPoint, s2:CGSize) -> Double {
