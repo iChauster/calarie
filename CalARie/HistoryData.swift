@@ -43,14 +43,14 @@ class HistoryData: NSObject {
     }
     
     func toDictionary()->[String:Any]{
-        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.calories: self.calories, PillHistoryKeys.timeTaken: self.timeTaken]
+        return [PillHistoryKeys.name: self.foodName, PillHistoryKeys.calorieIntake: self.calories, PillHistoryKeys.timeTaken: self.timeTaken]
     }
     
     init(dictionary: [String:Any]) {
         if let name = dictionary[PillHistoryKeys.name] as? String{
             self.foodName = name
         }
-        if let calories = dictionary[PillHistoryKeys.dailyDosageMax] as? Int{
+        if let calories = dictionary[PillHistoryKeys.calorieIntake] as? Int{
             self.calories = calories
         }
         if let timeTaken = dictionary[PillHistoryKeys.timeTaken] as? Date{
