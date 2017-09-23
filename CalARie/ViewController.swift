@@ -196,24 +196,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     var lastTakenTime = Date(timeIntervalSince1970: 0)
                     var actionStatement = ""
                     /*for pill in DataManager.shared().pillHistoryData {
-                        if pill.drugName == result.itemName {
-                            if lastTakenTime.timeIntervalSince1970 == 0 {
-                                actionStatement = pill.actionStatement
-                                lastTakenTime = pill.timeTaken
-                            }
-                            if pill.timeTaken.daysBetweenDate(toDate: Date()) == 0 {
-                                pillsTakenToday += 1
-                            }
-                        }
                     }*/
                     //make dictionary
                     
                     
                     var dictionary = Dictionary<String, String>()
-                    dictionary["Energy"] = "";
-                    dictionary["Sugars, total"] = ""
-                    dictionary["Total lipid (fat)"] = ""
-                    dictionary["Sodium, Na"] = ""
+
                     var nutritionFacts = result.maximum["report"]["food"]["nutrients"].array!
 
                         for item in nutritionFacts {
@@ -221,9 +209,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             {
                                 //loop through all objects in this jsonDictionary
                                 let postId = jsonDict["name"]?.stringValue
-                                if(dictionary[postId!] != nil){
-                                    dictionary[postId!] = jsonDict["value"]!.stringValue
-                                }
+                                dictionary[postId!] = jsonDict["value"]!.stringValue
                             }
                         }
                     
@@ -279,7 +265,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
                     limitLabel.textColor = .white
-                    limitLabel.font = UIFont(name: "Avenir", size: 30)
+                    limitLabel.font = UIFont(name: "Avenir", size: 35)
                     limitLabel.text = "\(dictionary["Energy"]!) Calories"
                     limitLabel.backgroundColor = .clear
                     imageView.addSubview(limitLabel)
