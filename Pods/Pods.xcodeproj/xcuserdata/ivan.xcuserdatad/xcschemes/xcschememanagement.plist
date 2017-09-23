@@ -14,7 +14,7 @@
 		<key>DeckTransition.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>3</integer>
 		</dict>
 		<key>Pods-CalARie.xcscheme</key>
 		<dict>
@@ -26,7 +26,7 @@
 		<key>ScrollableGraphView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>4</integer>
 		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>

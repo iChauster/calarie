@@ -208,8 +208,12 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     }*/
                     //make dictionary
                     
-
                     
+                    var dictionary = Dictionary()
+                    dictionary["Energy"] = "";
+                    dictionary["Sugars, total"] = ""
+                    dictionary["Total lipid (fat)"] = ""
+                    dictionary["Sodium, Na"] = ""
                     var nutritionFacts = result.maximum["report"]["food"]["nutrients"].array!
 
                         for item in nutritionFacts {
@@ -217,14 +221,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                             {
                                 //loop through all objects in this jsonDictionary
                                 let postId = jsonDict["value"]?.stringValue
-                                
-                                
-
-                                //...etc. ...create post object..etc.
-                                if(postId != nil)
-                                {
-                                    self.post.append(postId!)
-                                    print(self.post)
+                                if(dictionary[postId] != nil){
+                                    dictionary[postId] = jsonDict["value"].stringValue!
                                 }
                             }
                         }
@@ -351,7 +349,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
                     limitLabel.font = UIFont(name: "Avenir", size: 30)
-                    limitLabel.text = "\(self.post[self.post.count - 1]) Calories"
+                    limitLabel.text = "\(dictionary["Energy"]) Calories"
                     limitLabel.backgroundColor = .clear
                     imageView.addSubview(limitLabel)
                     
