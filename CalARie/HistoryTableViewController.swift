@@ -10,6 +10,7 @@ import UIKit
 import DeckTransition
 import ScrollableGraphView
 import Charts
+import SwiftyJSON
 class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var popUpView: UIView!
     @IBOutlet weak var histTable: UITableView!
@@ -50,28 +51,43 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         histTable.delegate = self
         
         total.layer.cornerRadius = 10
-        
+        var basicJSON = JSON()
+        //iterate, sum history and store in cache.
+        var history = FoodManager.shared().pillHistoryData as [HistoryData]
+        for historyData in 0...history.count {
+            var food = history[historyData] as HistoryData
+            var nutrients = food.nutrition as JSON
+            for n in 0...nutrients {
+                var nutrientData = nutrients[n]
+                if(basicJSON[nutrientData.name].exists()){
+                    basicJSON[nutrientData.name] += nutrientData["value"]
+                }else{
+                    basicJSON[nutrientData.name] = nutrientData["value"]
+                }
+            }
+        }
+        print(basicJSON)
         //setup PieChart
-        
+       
         let chart = self.pieChartView
         // 2. generate chart data entries
-        let track = ["Income", "Expense", "Wallet", "Bank"]
-        let money = [650, 456.13, 78.67, 856.52]
-        
+    
         var entries = [PieChartDataEntry]()
-        for (index, value) in money.enumerated() {
+        var objs = 0
+        for (key, object) in basicJSON {
+            objs += 1
             let entry = PieChartDataEntry()
-            entry.y = value
-            entry.label = track[index]
-            entries.append( entry)
+            entry.y = object
+            entry.label = key
+            entries.append(entry)
         }
         
         // 3. chart setup
-        let set = PieChartDataSet( values: entries, label: "Pie Chart")
+        let set = PieChartDataSet( values: entries, label: "Nutrients")
         // this is custom extension method. Download the code for more details.
         var colors: [UIColor] = []
         
-        for _ in 0..<money.count {
+        for _ in 0..<objs {
             let red = Double(arc4random_uniform(256))
             let green = Double(arc4random_uniform(256))
             let blue = Double(arc4random_uniform(256))
@@ -86,9 +102,9 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         chart.isUserInteractionEnabled = true
         
         let d = Description()
-        d.text = "iOSCharts.io"
+        d.text = "CALARIE"
         chart.chartDescription = d
-        chart.centerText = "Pie Chart"
+        chart.centerText = "Nutrient Chart"
         chart.holeRadiusPercent = 0.2
         chart.transparentCircleColor = UIColor.clear
         
