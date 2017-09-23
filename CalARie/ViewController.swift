@@ -48,7 +48,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
         // Set the scene to the view
         sceneView.scene = scene
         
-        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(HistoryTableViewController.dismissKeyboard))
+        let downSwipe = UISwipeGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard))
         downSwipe.direction = .up;
         self.view.addGestureRecognizer(downSwipe);
         
@@ -84,7 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, UIGestureRecognizerDe
     }
 
     //swipe up gesture
-    func dismissKeyboard(){
+    @objc func dismissKeyboard(){
         performSegue(withIdentifier: "MoveToHistory", sender: nil)
         let modal = HistoryTableViewController()
         let transitionDelegate = DeckTransitioningDelegate()

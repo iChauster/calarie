@@ -11,6 +11,8 @@ import SwiftyJSON
 import Alamofire
 
 class NutritionAPIManager {
+    //key : 3C6hpqd584ozuRiyC4uZtZqTViLRBoXbEyZl0iRp
+
     var nutritionURL: URL {
         return URL(string: "https://app.admirable43.hasura-app.io/")!
     }
