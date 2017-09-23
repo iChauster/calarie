@@ -12,6 +12,7 @@ class PopupViewCell: UITableViewCell {
 
     @IBOutlet weak var key: UILabel!
     @IBOutlet weak var val: UILabel!
+    @IBOutlet weak var percentage : UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

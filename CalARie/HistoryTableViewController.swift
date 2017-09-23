@@ -59,16 +59,19 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         //iterate, sum history and store in cache.
         var history = FoodManager.shared().pillHistoryData as [HistoryData]
         for historyData in 0..<history.count {
-            var food = history[historyData] as HistoryData
-            var nutrients = food.nutrition[0] as JSON
-            for (n, value) in nutrients.enumerated() {
+            let food = history[historyData] as HistoryData
+            let nutrients = food.nutrition[0] as JSON
+            for (_, value) in nutrients.enumerated() {
                 print(value)
                 var nutrientData = value.1
-                var name = value.0
+                let name = value.0
                 if(basicJSON[name].exists()){
-                    var sum = Double(nutrientData.rawString()!)! + Double(basicJSON[name].rawString()!)!
-                    basicJSON[name] = JSON(sum)
+                    print(nutrientData[0])
+                    print(basicJSON[name][0])
+                    var sum = Double(nutrientData[0].rawString()!)! + Double(basicJSON[name][0].rawString()!)!
+                    basicJSON[name][0] = JSON(sum)
                 }else{
+                    print("setting to \(nutrientData[0])")
                     basicJSON[name] = nutrientData
                 }
             }
@@ -94,7 +97,7 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
             objs += 1
             let entry = PieChartDataEntry()
             if let da = dailyAmounts[key] {
-                entry.y = object.doubleValue / da
+                entry.y = object[0].doubleValue / da
                 entry.label = key
                 entries.append(entry)
             }

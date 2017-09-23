@@ -274,14 +274,21 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-Kb-bIw">
-                                                            <rect key="frame" x="8" y="6" width="398" height="30"/>
+                                                            <rect key="frame" x="8" y="6" width="276" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Uw-Wb-Yec">
+                                                            <rect key="frame" x="441" y="6" width="73" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                                            <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja7-P0-TWe">
-                                                            <rect key="frame" x="426" y="6" width="165" height="30"/>
+                                                            <rect key="frame" x="445" y="7" width="165" height="30"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                             <color key="textColor" red="0.0" green="0.66666666669999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -290,12 +297,13 @@
                                                     </subviews>
                                                     <connections>
                                                         <outlet property="key" destination="nx7-Kb-bIw" id="fp8-yv-db4"/>
-                                                        <outlet property="val" destination="Ja7-P0-TWe" id="iK8-lW-T6q"/>
+                                                        <outlet property="val" destination="5Uw-Wb-Yec" id="xKU-Jx-dtp"/>
                                                     </connections>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="key" destination="nx7-Kb-bIw" id="XkY-m7-5oT"/>
-                                                    <outlet property="val" destination="Ja7-P0-TWe" id="jkx-A3-kCC"/>
+                                                    <outlet property="percentage" destination="Ja7-P0-TWe" id="dZq-dq-EBl"/>
+                                                    <outlet property="val" destination="5Uw-Wb-Yec" id="zpI-pT-OvW"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

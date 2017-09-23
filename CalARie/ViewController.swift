@@ -126,7 +126,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 if let dataFromString = components[1].data(using: .utf8, allowLossyConversion: false) {
                     let nutritionFacts = JSON(data: dataFromString)
-                    let cal = Int(nutritionFacts[0]["Energy"].string!)
+                    let cal = Int(nutritionFacts[0]["Energy"][0].string!)
                     FoodManager.shared().addPillHistory(foodName: components[0], calories:cal!, nutrition: nutritionFacts)
 
                 }
@@ -212,7 +212,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     //make dictionary
                     
                     
-                    var dictionary = Dictionary<String, String>()
+                    var dictionary = Dictionary<String, Array<Any>>()
 
                     var nutritionFacts = result.maximum["report"]["food"]["nutrients"].array!
 
@@ -221,7 +221,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             {
                                 //loop through all objects in this jsonDictionary
                                 let postId = jsonDict["name"]?.stringValue
-                                dictionary[postId!] = jsonDict["value"]!.stringValue
+                                dictionary[postId!] = [jsonDict["value"]!.stringValue, jsonDict["unit"]!.stringValue]
                             }
                         }
                     
@@ -278,7 +278,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     limitLabel.numberOfLines = 1
                     limitLabel.textColor = .white
                     limitLabel.font = UIFont(name: "Avenir", size: 35)
-                    limitLabel.text = "\(dictionary["Energy"]!) Calories"
+                    limitLabel.text = "\(dictionary["Energy"]![0]) Calories"
                     limitLabel.backgroundColor = .clear
                     imageView.addSubview(limitLabel)
                     

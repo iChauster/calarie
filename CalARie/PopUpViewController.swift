@@ -10,7 +10,8 @@ import UIKit
 import SwiftyJSON
 class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var nutView: UITableView!
-    var order = ["Energy","Cholesterol","Fatty acids, total saturated", "Sodium, Na", "Sugars, total", "Protein", "Carbohydrate, by difference", "Fiber, total dietary", "Vitamin D (D2 + D3)", "Calcium, Ca", "Iron, Fe", "Potassium, K"]
+    var order = ["Energy","Cholesterol","Total lipid (fat)", "Sodium, Na", "Sugars, total", "Protein", "Carbohydrate, by difference", "Fiber, total dietary", "Vitamin D (D2 + D3)", "Calcium, Ca", "Iron, Fe", "Potassium, K"]
+    var dailyAmounts = [String: Double]()
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return order.count
@@ -22,11 +23,21 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let item = order[indexPath.row]
 
         cell.key.text = item
-        cell.val.text = nutritionData[0][item].string
+        if(nutritionData[0][item].exists()){
+            cell.val.text = String(describing: nutritionData[0][item][0].string!) + String(describing: nutritionData[0][item]   [1].string!)
+            let value = Double(nutritionData[0][item][0].string!)
+            if let da = dailyAmounts[item] {
+                let doub = value! / da
+                let p = round(100.0 * doub) / 100.0
+                cell.percentage.text = String(p)
+            }else{
+                cell.percentage.text = "0%"
+            }
+        }else{
+            cell.val.text = "0.0"
+            cell.percentage.text = "0%"
+        }
 
-        
-
-        
         return cell
     }
     
@@ -41,6 +52,14 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let gest = UISwipeGestureRecognizer(target: self, action: #selector(dis))
         gest.direction = .down;
         self.view.addGestureRecognizer(gest);
+        dailyAmounts["Water"] = 2700
+        dailyAmounts["Energy"] = 10500
+        dailyAmounts["Protein"] = 56
+        dailyAmounts["Total lipid (fat)"] = 70
+        dailyAmounts["Carbohydrate, by difference"] = 310
+        dailyAmounts["Sugars, total"] = 90
+        dailyAmounts["Sodium, Na"] = 2.3 * 1000
+        dailyAmounts["Fiber, total dietary"] = 30
         // Do any additional setup after loading the view.
     }
 
