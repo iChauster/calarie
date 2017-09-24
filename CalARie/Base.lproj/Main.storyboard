@@ -84,7 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-lu-Yjv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Wn-lu-Yjv">
                                 <rect key="frame" x="0.0" y="556" width="768" height="468"/>
                                 <color key="backgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -193,11 +193,11 @@
                             <constraint firstItem="7Wn-lu-Yjv" firstAttribute="bottom" secondItem="qKb-t6-8Bk" secondAttribute="bottom" id="Oyp-nn-jbx"/>
                             <constraint firstItem="7Wn-lu-Yjv" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qKb-t6-8Bk" secondAttribute="trailing" id="Tb9-kO-Prf"/>
                             <constraint firstItem="afQ-59-99a" firstAttribute="centerX" secondItem="s0D-oh-Xag" secondAttribute="centerX" id="XXS-Be-we8"/>
-                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="Hko-w1-YZp" secondAttribute="bottom" constant="382" id="YXE-ac-11e"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="Hko-w1-YZp" secondAttribute="bottom" constant="467" id="YXE-ac-11e"/>
                             <constraint firstItem="7Wn-lu-Yjv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qKb-t6-8Bk" secondAttribute="leading" id="pr8-LK-slJ"/>
                             <constraint firstItem="afQ-59-99a" firstAttribute="top" secondItem="Hko-w1-YZp" secondAttribute="bottom" constant="8" id="t2R-oo-z5H"/>
-                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="s0D-oh-Xag" secondAttribute="top" constant="471" id="uup-BZ-pEb"/>
-                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="afQ-59-99a" secondAttribute="bottom" constant="8" id="yn2-xV-jNC"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="s0D-oh-Xag" secondAttribute="top" constant="556" id="uup-BZ-pEb"/>
+                            <constraint firstItem="7Wn-lu-Yjv" firstAttribute="top" secondItem="afQ-59-99a" secondAttribute="bottom" constant="93" id="yn2-xV-jNC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qKb-t6-8Bk"/>
                     </view>
