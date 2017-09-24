@@ -60,6 +60,12 @@ class PopUpViewController: UIViewController, UITableViewDelegate, UITableViewDat
         dailyAmounts["Sugars, total"] = 90
         dailyAmounts["Sodium, Na"] = 2.3 * 1000
         dailyAmounts["Fiber, total dietary"] = 30
+        dailyAmounts["Iron, Fe"] = 15.1
+        dailyAmounts["Vitamin B-12"] = 2.4
+        dailyAmounts["Vitamin A, IU"] = 3000
+        dailyAmounts["Vitamin B-6"] = 1.3
+        dailyAmounts["Calcium, Ca"] = 1200
+        dailyAmounts["Cholesterol"] = 300
         // Do any additional setup after loading the view.
     }
 
