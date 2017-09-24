@@ -1,6 +1,0 @@
-framework module ATCircularProgressView {
-  umbrella header "ATCircularProgressView-umbrella.h"
-
-  export *
-  module * { export * }
-}

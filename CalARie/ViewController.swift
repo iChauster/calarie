@@ -14,7 +14,6 @@ import Vision
 import Photos
 import DeckTransition
 import SwiftyJSON
-import ATCircularProgressView
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -246,7 +245,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     imageView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
                     imageView.alpha = 1.0
                     imageView.layer.cornerRadius = 15
-                    let titleLabel = UILabel(frame: CGRect(x: 64, y: 64, width: imageView.frame.width-224, height: 84))
+                    let titleLabel = UILabel(frame: CGRect(x: 0, y: 64, width: imageView.frame.width, height: 100))
                     titleLabel.textAlignment = .center
                     titleLabel.numberOfLines = 1
                     titleLabel.font = UIFont(name: "Avenir", size: 84)
