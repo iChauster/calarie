@@ -62,7 +62,7 @@ class FoodManager {
         
         if let dataFromString = str.data(using: .utf8, allowLossyConversion: false) {
             let nutritionFacts = JSON(data: dataFromString)
-            pillHistoryData.append(HistoryData(foodName: "Bagel", calories: 24, timeTaken: dateFormatter.date(from: "09-24-2017 13:16:57")!, nutrition : nutritionFacts))
+            pillHistoryData.append(HistoryData(foodName: "Bagel", calories: 24, timeTaken: dateFormatter.date(from: "09-23-2017 13:20:57")!, nutrition : nutritionFacts))
             
         }
    

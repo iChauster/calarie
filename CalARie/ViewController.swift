@@ -245,8 +245,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     imageView.backgroundColor = UIColor(red:0.13, green:0.13, blue:0.13, alpha:1.0)
                     imageView.alpha = 1.0
                     imageView.layer.cornerRadius = 15
-                    let titleLabel = UILabel(frame: CGRect(x: 0, y: 64, width: imageView.frame.width, height: 100))
-                    titleLabel.textAlignment = .center
+                    let titleLabel = UILabel(frame: CGRect(x: 8, y: 64, width: imageView.frame.width, height: 100))
+                    titleLabel.textAlignment = .left
                     titleLabel.numberOfLines = 1
                     titleLabel.font = UIFont(name: "Avenir", size: 84)
                     titleLabel.text = result.itemName.capitalized
@@ -286,7 +286,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     proteinLabel.center = proteinLine.center
                     proteinLabel.textAlignment = .center
                     proteinLabel.numberOfLines = 0
-                    proteinLabel.font = UIFont(name: "Avenir", size: 20)
+                    proteinLabel.font = UIFont(name: "Avenir", size: 25)
                     let pGrams = dictionary["Protein"]![0] as! String
                     let pUnits = dictionary["Protein"]![1] as! String
                     proteinLabel.text = "Protein\n" + String(describing : pGrams) + pUnits
@@ -316,7 +316,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     cLabel.center = carbLine.center
                     cLabel.textAlignment = .center
                     cLabel.numberOfLines = 0
-                    cLabel.font = UIFont(name: "Avenir", size: 20)
+                    cLabel.font = UIFont(name: "Avenir", size: 25)
                     let cGrams = dictionary["Carbohydrate, by difference"]![0] as! String
                     let cUnits = dictionary["Carbohydrate, by difference"]![1] as! String
                     cLabel.text = "Carbs\n" + String(describing : cGrams) + cUnits
@@ -346,7 +346,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     fLabel.center = fatLine.center
                     fLabel.textAlignment = .center
                     fLabel.numberOfLines = 0
-                    fLabel.font = UIFont(name: "Avenir", size: 20)
+                    fLabel.font = UIFont(name: "Avenir", size: 25)
                     let fGrams = dictionary["Total lipid (fat)"]![0] as! String
                     let fUnits = dictionary["Total lipid (fat)"]![1] as! String
                     fLabel.text = "Fat\n" + String(describing : fGrams) + fUnits
