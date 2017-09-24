@@ -14,6 +14,7 @@ import Vision
 import Photos
 import DeckTransition
 import SwiftyJSON
+import ATCircularProgressView
 
 class ViewController: UIViewController, ARSCNViewDelegate {
 
@@ -204,9 +205,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 if let result = result {
                     print(result);
                     print("3----------------")
-                    var pillsTakenToday = 0
-                    var lastTakenTime = Date(timeIntervalSince1970: 0)
-                    var actionStatement = ""
                     /*for pill in DataManager.shared().pillHistoryData {
                     }*/
                     //make dictionary
@@ -259,7 +257,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     
                     
                     
-                    //calories
                     let lastTakenLabel = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width-128, height: 42))
                     lastTakenLabel.textAlignment = .left
                     lastTakenLabel.numberOfLines = 1
@@ -267,13 +264,120 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     //lastTakenLabel.text = "Last taken \(lastTakenTime.timestringFromNow()))"
                     lastTakenLabel.backgroundColor = .clear
                     lastTakenLabel.textColor = .white
-                    if lastTakenTime.timeIntervalSince1970 != 0 {
-                        imageView.addSubview(lastTakenLabel)
-                    }
                     
-                    let diceRoll = Int(arc4random_uniform(UInt32(self.post.count)))
+                    var sum = 0.0
+                    
+                    let proteinLine = UIView()
+                    proteinLine.frame = CGRect(x:0,y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    let dropP = UIView()
+                    dropP.frame = CGRect(x:0,y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    dropP.layer.cornerRadius = 10
+                    dropP.clipsToBounds = true
+                    dropP.layer.borderWidth = 2
+                    dropP.layer.borderColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0).cgColor
+                    dropP.backgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:0.0)
+
+                    proteinLine.backgroundColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0)
+                    proteinLine.layer.cornerRadius = 10
+                    proteinLine.clipsToBounds = true
+                    proteinLine.layer.borderWidth = 1
+                    proteinLine.layer.borderColor = UIColor(red:0.96, green:0.26, blue:0.21, alpha:1.0).cgColor
+                    let proteinLabel = UILabel()
+                    proteinLabel.frame.size = CGSize(width: proteinLine.frame.width, height: 100)
+                    proteinLabel.center = proteinLine.center
+                    proteinLabel.textAlignment = .center
+                    proteinLabel.numberOfLines = 0
+                    proteinLabel.font = UIFont(name: "Avenir", size: 20)
+                    let pGrams = dictionary["Protein"]![0] as! String
+                    let pUnits = dictionary["Protein"]![1] as! String
+                    proteinLabel.text = "Protein\n" + String(describing : pGrams) + pUnits
+                    proteinLabel.textColor = .white
+                    proteinLabel.backgroundColor = .clear
+                    imageView.addSubview(dropP)
+                    imageView.addSubview(proteinLine)
+                    imageView.addSubview(proteinLabel)
+                    
+                    let carbLine = UIView()
+                    carbLine.frame = CGRect(x:((imageView.frame.width-20) / 3) + 10,y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    carbLine.backgroundColor = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0)
+                    carbLine.layer.cornerRadius = 10
+                    carbLine.clipsToBounds = true
+                    carbLine.layer.borderWidth = 2
+                    carbLine.layer.borderColor = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0).cgColor
+                    let dropC = UIView()
+                    dropC.frame = CGRect(x:((imageView.frame.width-20) / 3) + 10,y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    dropC.layer.cornerRadius = 10
+                    dropC.clipsToBounds = true
+                    dropC.layer.borderWidth = 1
+                    dropC.layer.borderColor = UIColor(red:0.30, green:0.69, blue:0.31, alpha:1.0).cgColor
+                    dropC.backgroundColor = UIColor(red:0.30, green:0.69, blue:0.31, alpha:0.0)
+                    let cLabel = UILabel()
+                    cLabel.frame.size = CGSize(width: carbLine.frame.width, height: 100)
+
+                    cLabel.center = carbLine.center
+                    cLabel.textAlignment = .center
+                    cLabel.numberOfLines = 0
+                    cLabel.font = UIFont(name: "Avenir", size: 20)
+                    let cGrams = dictionary["Carbohydrate, by difference"]![0] as! String
+                    let cUnits = dictionary["Carbohydrate, by difference"]![1] as! String
+                    cLabel.text = "Carbs\n" + String(describing : cGrams) + cUnits
+                    cLabel.textColor = .white
+                    cLabel.backgroundColor = .clear
+                    imageView.addSubview(carbLine)
+                    imageView.addSubview(dropC)
+                    imageView.addSubview(cLabel)
+
+                    let fatLine = UIView()
+                    fatLine.frame = CGRect(x: ((imageView.frame.width-20) / 3) + 20 + ((imageView.frame.width-20) / 3),y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    fatLine.backgroundColor = UIColor(red:0.40, green:0.23, blue:0.72, alpha:1.0)
+                    fatLine.layer.cornerRadius = 10
+                    fatLine.clipsToBounds = true
+                    fatLine.layer.borderWidth = 2
+                    fatLine.layer.borderColor = UIColor(red:0.40, green:0.23, blue:0.72, alpha:1.0).cgColor
+                    
+                    let dropF = UIView()
+                    dropF.frame = CGRect(x: ((imageView.frame.width-20) / 3) + 20 + ((imageView.frame.width-20) / 3),y:260, width: ((imageView.frame.width-20) / 3), height : 200)
+                    dropF.layer.cornerRadius = 10
+                    dropF.clipsToBounds = true
+                    dropF.layer.borderWidth = 1
+                    dropF.layer.borderColor = UIColor(red:0.40, green:0.23, blue:0.72, alpha:1.0).cgColor
+                    dropF.backgroundColor = UIColor(red:0.40, green:0.23, blue:0.72, alpha:0.0)
+                    let fLabel = UILabel()
+                    fLabel.frame.size = CGSize(width: fatLine.frame.width, height: 100)
+                    fLabel.center = fatLine.center
+                    fLabel.textAlignment = .center
+                    fLabel.numberOfLines = 0
+                    fLabel.font = UIFont(name: "Avenir", size: 20)
+                    let fGrams = dictionary["Total lipid (fat)"]![0] as! String
+                    let fUnits = dictionary["Total lipid (fat)"]![1] as! String
+                    fLabel.text = "Fat\n" + String(describing : fGrams) + fUnits
+                    fLabel.textColor = .white
+                    fLabel.backgroundColor = .clear
+                    imageView.addSubview(dropF)
+                    imageView.addSubview(fatLine)
+                    imageView.addSubview(fLabel)
+
+                    
+                    
+                    let pValueRel = Double(pGrams)! / 56
+                    let cValueRel = Double(cGrams)! / 310
+                    let fValueRel = Double(fGrams)! / 70
+                    
+                    sum = pValueRel + cValueRel + fValueRel
+                    let pAverage = pValueRel / sum;
+                    let cAverage = cValueRel / sum;
+                    let fAverage = fValueRel / sum;
+                    
+                    let p = proteinLine.frame.size.height - proteinLine.frame.size.height * CGFloat(pAverage)
+                    let c = carbLine.frame.size.height - carbLine.frame.size.height * CGFloat(cAverage)
+                    let f = fatLine.frame.size.height - fatLine.frame.size.height * CGFloat(fAverage)
+                   
+                    proteinLine.frame = CGRect(x: proteinLine.frame.minX, y: proteinLine.frame.minY + p, width: proteinLine.frame.size.width, height: proteinLine.frame.size.height - p)
+                    carbLine.frame = CGRect(x: carbLine.frame.minX, y: carbLine.frame.minY + c, width: carbLine.frame.size.width, height: carbLine.frame.size.height - c)
+                    fatLine.frame = CGRect(x: fatLine.frame.minX, y: fatLine.frame.minY + f, width: fatLine.frame.size.width, height: fatLine.frame.size.height - f)
+                    
                     print("Should be \(dictionary["Energy"]!) Calories");
-                    let limitLabel = UILabel(frame: CGRect(x: 64, y: 286, width: imageView.frame.width-128, height: 63))
+                    let limitLabel = UILabel(frame: CGRect(x: 64, y: 200, width: imageView.frame.width-128, height: 63))
                     limitLabel.textAlignment = .center
                     limitLabel.numberOfLines = 1
                     limitLabel.textColor = .white
@@ -289,9 +393,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     refillLabel.text = "REFILL SOON"
                     refillLabel.backgroundColor = .clear
                     refillLabel.textColor = .red
-                    if actionStatement == "YOU MAY NEED TO REFILL SOON" {
-                        imageView.addSubview(refillLabel)
-                    }
+                    
                     
                     let buttonNode = self.createButton(size: CGSize(width: imageView.frame.width - 128, height: 84))
                     let b = JSON([dictionary]).rawString()!

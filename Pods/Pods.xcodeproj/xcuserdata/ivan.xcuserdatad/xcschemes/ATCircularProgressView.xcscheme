@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '5724B981D571C680C83651312F3AF040'
-               BlueprintName = 'ScrollableGraphView'
+               BlueprintIdentifier = '077C3922EE68B302D5927786698BEFBE'
+               BlueprintName = 'ATCircularProgressView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'ScrollableGraphView.framework'>
+               BuildableName = 'ATCircularProgressView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

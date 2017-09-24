@@ -112,7 +112,9 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
             if let da = dailyAmounts[key] {
                 entry.y = object[0].doubleValue / da
                 entry.label = key
-                entries.append(entry)
+                if(entry.y > 0.05){
+                    entries.append(entry)
+                }
             }
             
         }
@@ -139,9 +141,11 @@ class HistoryTableViewController:UIViewController, UITableViewDelegate, UITableV
         let d = Description()
         d.text = "CALARIE"
         chart.chartDescription = d
-        chart.centerText = "Nutrient Chart"
+        chart.chartDescription?.textColor = .white
+        chart.centerText = "Nutrients"
         chart.holeRadiusPercent = 0.2
         chart.transparentCircleColor = UIColor.clear
+        chart.legend.textColor = .white
         
     }
     func tableViewDidScroll(_ tableView: UITableView) {
